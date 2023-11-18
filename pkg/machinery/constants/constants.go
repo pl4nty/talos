@@ -112,6 +112,9 @@ const (
 	// BoardNanoPiR4S is the name of the Friendlyelec Nano Pi R4S.
 	BoardNanoPiR4S = "nanopi_r4s"
 
+	// BoardTuringRK1 is the name of the Turing RK1.
+	BoardTuringRK1 = "turing_rk1"
+
 	// KernelParamHostname is the kernel parameter name for specifying the
 	// hostname.
 	KernelParamHostname = "talos.hostname"
