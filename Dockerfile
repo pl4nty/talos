@@ -82,7 +82,7 @@ FROM ${PKG_KERNEL} AS pkg-kernel
 FROM --platform=amd64 ${PKG_KERNEL} AS pkg-kernel-amd64
 FROM --platform=arm64 ${PKG_KERNEL} AS pkg-kernel-arm64
 
-FROM --platform=arm64 ghcr.io/pl4nty/u-boot:d101698 AS pkg-u-boot-arm64
+FROM --platform=arm64 ghcr.io/pl4nty/u-boot:8d5f934 AS pkg-u-boot-arm64
 FROM --platform=arm64 ghcr.io/siderolabs/raspberrypi-firmware:${PKGS} AS pkg-raspberrypi-firmware-arm64
 
 # Resolve package images using ${EXTRAS} to be used later in COPY --from=.
