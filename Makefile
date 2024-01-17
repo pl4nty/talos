@@ -16,6 +16,7 @@ CLOUD_IMAGES_EXTRA_ARGS ?= ""
 
 ARTIFACTS := _out
 TOOLS ?= ghcr.io/siderolabs/tools:v1.6.0-2-g5e034ec
+PKGS_PREFIX ?= ghcr.io/siderolabs
 PKGS ?= v1.6.0-16-gb77ffb7
 PKG_KERNEL ?= ghcr.io/siderolabs/kernel:$(PKGS)
 EXTRAS ?= v1.6.0-1-g113887a
@@ -144,6 +145,7 @@ COMMON_ARGS += --build-arg=NAME=$(NAME)
 COMMON_ARGS += --build-arg=SHA=$(SHA)
 COMMON_ARGS += --build-arg=USERNAME=$(USERNAME)
 COMMON_ARGS += --build-arg=REGISTRY=$(REGISTRY)
+COMMON_ARGS += --build-arg=PKGS_PREFIX=$(PKGS_PREFIX)
 COMMON_ARGS += --build-arg=ABBREV_TAG=$(ABBREV_TAG)
 
 CI_ARGS ?=
