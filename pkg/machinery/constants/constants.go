@@ -16,7 +16,7 @@ import (
 
 const (
 	// DefaultKernelVersion is the default Linux kernel version.
-	DefaultKernelVersion = "6.1.74-talos"
+	DefaultKernelVersion = "6.8.0-rc2-talos"
 
 	// KernelModulesPath is the default path to the kernel modules without the kernel version.
 	KernelModulesPath = "/lib/modules"
@@ -111,6 +111,9 @@ const (
 
 	// BoardNanoPiR4S is the name of the Friendlyelec Nano Pi R4S.
 	BoardNanoPiR4S = "nanopi_r4s"
+
+	// BoardOrangePi5 is the name of the Xunlong Orange Pi 5.
+	BoardOrangePi5 = "orangepi_5"
 
 	// KernelParamHostname is the kernel parameter name for specifying the
 	// hostname.

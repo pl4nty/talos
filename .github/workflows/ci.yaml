@@ -35,7 +35,7 @@ jobs:
         run: |
           LONG=$(echo $GITHUB_REF_NAME | grep -Po '\d.\d.\d(-[^-]+)?')
           echo "PKG_KERNEL=ghcr.io/$GITHUB_REPOSITORY_OWNER/kernel:v$LONG" >> $GITHUB_ENV
-          echo "PKGS=v${LONG%-*}" >> $GITHUB_ENV
+          echo "PKG_U_BOOT=ghcr.io/$GITHUB_REPOSITORY_OWNER/u-boot:v$LONG" >> $GITHUB_ENV
       - name: checkout
         uses: actions/checkout@v4
       - name: Unshallow

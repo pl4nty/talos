@@ -5,6 +5,7 @@
 ARG TOOLS
 ARG PKGS
 ARG PKG_KERNEL
+ARG PKG_U_BOOT
 ARG EXTRAS
 ARG INSTALLER_ARCH
 ARG PKGS_PREFIX
@@ -86,7 +87,7 @@ FROM ${PKG_KERNEL} AS pkg-kernel
 FROM --platform=amd64 ${PKG_KERNEL} AS pkg-kernel-amd64
 FROM --platform=arm64 ${PKG_KERNEL} AS pkg-kernel-arm64
 
-FROM --platform=arm64 ${PKGS_PREFIX}/u-boot:${PKGS} AS pkg-u-boot-arm64
+FROM --platform=arm64 ${PKG_U_BOOT} AS pkg-u-boot-arm64
 FROM --platform=arm64 ${PKGS_PREFIX}/raspberrypi-firmware:${PKGS} AS pkg-raspberrypi-firmware-arm64
 
 # Resolve package images using ${EXTRAS} to be used later in COPY --from=.
@@ -105,7 +106,7 @@ RUN ["/toolchain/bin/ln", "-svf", "/toolchain/bin/bash", "/bin/sh"]
 RUN ["/toolchain/bin/ln", "-svf", "/toolchain/etc/ssl", "/etc/ssl"]
 ARG GOLANGCILINT_VERSION
 RUN --mount=type=cache,target=/.cache go install github.com/golangci/golangci-lint/cmd/golangci-lint@${GOLANGCILINT_VERSION} \
-	&& mv /go/bin/golangci-lint /toolchain/go/bin/golangci-lint
+    && mv /go/bin/golangci-lint /toolchain/go/bin/golangci-lint
 ARG GOIMPORTS_VERSION
 RUN --mount=type=cache,target=/.cache go install golang.org/x/tools/cmd/goimports@${GOIMPORTS_VERSION} \
     && mv /go/bin/goimports /toolchain/go/bin/goimports
@@ -506,14 +507,9 @@ RUN <<EOF
 set -euo pipefail
 
 KERNEL_VERSION=$(ls lib/modules)
-
-xargs -a modules-amd64.txt -I {} install -D lib/modules/${KERNEL_VERSION}/{} /build/lib/modules/${KERNEL_VERSION}/{}
-
-depmod -b /build ${KERNEL_VERSION}
 EOF
 
 FROM scratch AS modules-amd64
-COPY --from=depmod-amd64 /build/lib/modules /lib/modules
 
 FROM tools AS depmod-arm64
 WORKDIR /staging
@@ -557,7 +553,6 @@ COPY --link --from=pkg-util-linux-amd64 /lib/libuuid.* /rootfs/lib/
 COPY --link --from=pkg-util-linux-amd64 /lib/libmount.* /rootfs/lib/
 COPY --link --from=pkg-kmod-amd64 /usr/lib/libkmod.* /rootfs/lib/
 COPY --link --from=pkg-kmod-amd64 /usr/bin/kmod /rootfs/sbin/modprobe
-COPY --link --from=modules-amd64 /lib/modules /rootfs/lib/modules
 COPY --link --from=machined-build-amd64 /machined /rootfs/sbin/init
 RUN <<END
     # the orderly_poweroff call by the kernel will call '/sbin/poweroff'
