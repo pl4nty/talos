@@ -1,6 +1,8 @@
 env:
   USERNAME: ${{ github.repository_owner }}
   PLATFORM: linux/arm64
+  PKG_KERNEL: ghcr.io/${{ github.repository_owner }}/kernel:v1.6.5-orangepi5
+  PKG_U_BOOT: ghcr.io/${{ github.repository_owner }}/u-boot:v1.6.5-orangepi5
 
 name: default
 concurrency:
