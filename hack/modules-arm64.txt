@@ -5,6 +5,9 @@ kernel/crypto/async_tx/async_tx.ko
 kernel/crypto/async_tx/async_xor.ko
 kernel/crypto/xor.ko
 kernel/drivers/block/nbd.ko
+kernel/drivers/clk/clk-rk808.ko
+kernel/drivers/gpu/drm/panfrost/panfrost.ko
+kernel/drivers/gpu/drm/scheduler/gpu-sched.ko
 kernel/drivers/hwmon/i5k_amb.ko
 kernel/drivers/infiniband/hw/mlx4/mlx4_ib.ko
 kernel/drivers/infiniband/hw/mlx5/mlx5_ib.ko
@@ -18,6 +21,13 @@ kernel/drivers/md/dm-round-robin.ko
 kernel/drivers/md/dm-thin-pool.ko
 kernel/drivers/md/persistent-data/dm-persistent-data.ko
 kernel/drivers/md/raid456.ko
+kernel/drivers/mfd/rk8xx-core.ko
+kernel/drivers/mfd/rk8xx-i2c.ko
+kernel/drivers/media/common/videobuf2/videobuf2-dma-contig.ko
+kernel/drivers/media/platform/verisilicon/hantro-vpu.ko
+kernel/drivers/media/v4l2-core/v4l2-h264.ko
+kernel/drivers/media/v4l2-core/v4l2-mem2mem.ko
+kernel/drivers/media/v4l2-core/v4l2-vp9.ko
 kernel/drivers/net/ethernet/atheros/alx/alx.ko
 kernel/drivers/net/ethernet/google/gve/gve.ko
 kernel/drivers/net/ethernet/mellanox/mlx4/mlx4_core.ko
@@ -31,7 +41,13 @@ kernel/drivers/net/ethernet/mellanox/mlxsw/mlxsw_pci.ko
 kernel/drivers/net/ethernet/mellanox/mlxsw/mlxsw_spectrum.ko
 kernel/drivers/net/ethernet/sfc/sfc.ko
 kernel/drivers/net/ethernet/sfc/siena/sfc-siena.ko
+kernel/drivers/net/phy/motorcomm.ko
+kernel/drivers/phy/rockchip/phy-rockchip-inno-csidphy.ko
+kernel/drivers/phy/rockchip/phy-rockchip-naneng-combphy.ko
 kernel/drivers/net/vrf.ko
+kernel/drivers/power/supply/rk817_charger.ko
+kernel/drivers/regulator/rk808-regulator.ko
+kernel/drivers/rtc/rtc-rk808.ko
 kernel/drivers/vfio/pci/vfio-pci-core.ko
 kernel/drivers/vfio/pci/vfio-pci.ko
 kernel/drivers/vfio/vfio_iommu_type1.ko

@@ -1,5 +1,7 @@
 env:
   USERNAME: ${{ github.repository_owner }}
+  PKG_KERNEL: ghcr.io/pl4nty/kernel:7dab1d5
+  TAG: v1.7.0
 
 name: default
 concurrency:

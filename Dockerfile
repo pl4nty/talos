@@ -529,7 +529,7 @@ set -euo pipefail
 
 KERNEL_VERSION=$(ls lib/modules)
 
-xargs -a modules-amd64.txt -I {} install -D lib/modules/${KERNEL_VERSION}/{} /build/lib/modules/${KERNEL_VERSION}/{}
+mkdir -p /build/lib/modules/${KERNEL_VERSION}
 
 depmod -b /build ${KERNEL_VERSION}
 EOF
