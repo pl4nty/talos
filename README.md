@@ -15,6 +15,20 @@
 
 ---
 
+# RISC-V Fork
+
+This fork of Talos implements support for the RISC-V architecture.
+A few features are missing, like amd64/arm64 imaging and iPXE boot, but most should work.
+Please [report issues here](https://github.com/pl4nty/talos/issues/new/choose) instead of upstream.
+
+To get started, download an image artifact from the latest [GitHub run](https://github.com/pl4nty/talos/actions) and flash it to a device, or build an image with `imager`:
+
+```sh
+docker run --rm -t -v $(pwd)/_out:/out -v /dev:/dev --privileged ghcr.io/pl4nty/imager metal --arch riscv64
+```
+
+---
+
 **Talos** is a modern OS for running Kubernetes: secure, immutable, and minimal.
 Talos is fully open source, production-ready, and supported by the people at [Sidero Labs](https://www.SideroLabs.com/)
 All system management is done via an API - there is no shell or interactive console.

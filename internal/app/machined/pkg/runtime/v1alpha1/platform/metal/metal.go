@@ -168,6 +168,10 @@ func (m *Metal) KernelArgs(arch string) procfs.Parameters {
 		return []*procfs.Parameter{
 			procfs.NewParameter("console").Append("ttyAMA0").Append("tty0"),
 		}
+	case "riscv64":
+		return []*procfs.Parameter{
+			procfs.NewParameter("console").Append("ttyAMA0").Append("tty0"),
+		}
 	default:
 		return nil
 	}

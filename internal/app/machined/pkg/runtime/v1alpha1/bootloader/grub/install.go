@@ -21,6 +21,7 @@ import (
 const (
 	amd64 = "amd64"
 	arm64 = "arm64"
+	riscv64 = "riscv64"
 )
 
 // Install validates the grub configuration and writes it to the disk.
@@ -65,6 +66,8 @@ func (c *Config) Install(options options.InstallOptions) error {
 		platforms = []string{"x86_64-efi", "i386-pc"}
 	case arm64:
 		platforms = []string{"arm64-efi"}
+	case riscv64:
+		platforms = []string{"riscv64-efi"}
 	}
 
 	if runtime.GOARCH == amd64 && options.Arch == amd64 && !options.ImageMode {

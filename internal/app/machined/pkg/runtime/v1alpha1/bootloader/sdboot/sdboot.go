@@ -136,6 +136,8 @@ func (c *Config) Install(options options.InstallOptions) error {
 		sdbootFilename = "BOOTX64.efi"
 	case "arm64":
 		sdbootFilename = "BOOTAA64.efi"
+	case "riscv64":
+		sdbootFilename = "BOOTRISCV64.efi"
 	default:
 		return fmt.Errorf("unsupported architecture: %s", options.Arch)
 	}

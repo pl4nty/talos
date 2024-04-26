@@ -137,8 +137,11 @@ func CreateUEFI(printf func(string, ...any), options UEFIOptions) error {
 
 	efiBootPath := "::EFI/BOOT/BOOTX64.EFI"
 
-	if options.Arch == "arm64" {
+	switch options.Arch {
+	case "arm64":
 		efiBootPath = "::EFI/BOOT/BOOTAA64.EFI"
+	case "riscv64":
+		efiBootPath = "::EFI/BOOT/BOOTRISCV64.EFI"
 	}
 
 	if _, err := cmd.Run("mcopy", "-i", efiBootImg, options.SDBootPath, efiBootPath); err != nil {

@@ -18,8 +18,11 @@ func (e *EtcdConfig) Image() string {
 	image := e.ContainerImage
 	suffix := ""
 
-	if goruntime.GOARCH == "arm64" {
+	switch goruntime.GOARCH {
+	case "arm64":
 		suffix = "-arm64"
+	case "riscv64":
+		suffix = "-riscv64"
 	}
 
 	if image == "" {

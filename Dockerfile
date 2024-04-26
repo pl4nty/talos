@@ -40,77 +40,53 @@ ARG PKG_TALOSCTL_CNI_BUNDLE_INSTALL
 FROM ${PKG_FHS} AS pkg-fhs
 FROM ${PKG_CA_CERTIFICATES} AS pkg-ca-certificates
 
-FROM --platform=amd64 ${PKG_CRYPTSETUP} AS pkg-cryptsetup-amd64
-FROM --platform=arm64 ${PKG_CRYPTSETUP} AS pkg-cryptsetup-arm64
+FROM --platform=riscv64 ${PKG_CRYPTSETUP} AS pkg-cryptsetup-riscv64
 
-FROM --platform=amd64 ${PKG_CONTAINERD} AS pkg-containerd-amd64
-FROM --platform=arm64 ${PKG_CONTAINERD} AS pkg-containerd-arm64
+FROM --platform=riscv64 ${PKG_CONTAINERD} AS pkg-containerd-riscv64
 
-FROM --platform=amd64 ${PKG_DOSFSTOOLS} AS pkg-dosfstools-amd64
-FROM --platform=arm64 ${PKG_DOSFSTOOLS} AS pkg-dosfstools-arm64
+FROM --platform=riscv64 ${PKG_DOSFSTOOLS} AS pkg-dosfstools-riscv64
 
-FROM --platform=amd64 ${PKG_EUDEV} AS pkg-eudev-amd64
-FROM --platform=arm64 ${PKG_EUDEV} AS pkg-eudev-arm64
+FROM --platform=riscv64 ${PKG_EUDEV} AS pkg-eudev-riscv64
 
-FROM ${PKG_GRUB} AS pkg-grub
-FROM --platform=amd64 ${PKG_GRUB} AS pkg-grub-amd64
-FROM --platform=arm64 ${PKG_GRUB} AS pkg-grub-arm64
+FROM ghcr.io/siderolabs/grub:v1.8.0-alpha.0-3-g010913b AS pkg-grub
+FROM --platform=riscv64 ${PKG_GRUB} AS pkg-grub-riscv64
 
 FROM ${PKG_SD_BOOT} AS pkg-sd-boot
-FROM --platform=amd64 ${PKG_SD_BOOT} AS pkg-sd-boot-amd64
-FROM --platform=arm64 ${PKG_SD_BOOT} AS pkg-sd-boot-arm64
+FROM --platform=riscv64 ${PKG_SD_BOOT} AS pkg-sd-boot-riscv64
 
-FROM --platform=amd64 ${PKG_IPTABLES} AS pkg-iptables-amd64
-FROM --platform=arm64 ${PKG_IPTABLES} AS pkg-iptables-arm64
+FROM --platform=riscv64 ${PKG_IPTABLES} AS pkg-iptables-riscv64
 
-FROM --platform=amd64 ${PKG_IPXE} AS pkg-ipxe-amd64
-FROM --platform=arm64 ${PKG_IPXE} AS pkg-ipxe-arm64
+FROM --platform=riscv64 ${PKG_LIBINIH} AS pkg-libinih-riscv64
 
-FROM --platform=amd64 ${PKG_LIBINIH} AS pkg-libinih-amd64
-FROM --platform=arm64 ${PKG_LIBINIH} AS pkg-libinih-arm64
+FROM --platform=riscv64 ${PKG_LIBJSON_C} AS pkg-libjson-c-riscv64
 
-FROM --platform=amd64 ${PKG_LIBJSON_C} AS pkg-libjson-c-amd64
-FROM --platform=arm64 ${PKG_LIBJSON_C} AS pkg-libjson-c-arm64
+FROM --platform=riscv64 ${PKG_LIBPOPT} AS pkg-libpopt-riscv64
 
-FROM --platform=amd64 ${PKG_LIBPOPT} AS pkg-libpopt-amd64
-FROM --platform=arm64 ${PKG_LIBPOPT} AS pkg-libpopt-arm64
+FROM --platform=riscv64 ${PKG_LIBURCU} AS pkg-liburcu-riscv64
 
-FROM --platform=amd64 ${PKG_LIBURCU} AS pkg-liburcu-amd64
-FROM --platform=arm64 ${PKG_LIBURCU} AS pkg-liburcu-arm64
+FROM --platform=riscv64 ${PKG_OPENSSL} AS pkg-openssl-riscv64
 
-FROM --platform=amd64 ${PKG_OPENSSL} AS pkg-openssl-amd64
-FROM --platform=arm64 ${PKG_OPENSSL} AS pkg-openssl-arm64
-
-FROM --platform=amd64 ${PKG_LIBSECCOMP} AS pkg-libseccomp-amd64
-FROM --platform=arm64 ${PKG_LIBSECCOMP} AS pkg-libseccomp-arm64
+FROM --platform=riscv64 ${PKG_LIBSECCOMP} AS pkg-libseccomp-riscv64
 
 # linux-firmware is not arch-specific
-FROM --platform=amd64 ${PKG_LINUX_FIRMWARE} AS pkg-linux-firmware
+FROM --platform=riscv64 ${PKG_LINUX_FIRMWARE} AS pkg-linux-firmware
 
-FROM --platform=amd64 ${PKG_LVM2} AS pkg-lvm2-amd64
-FROM --platform=arm64 ${PKG_LVM2} AS pkg-lvm2-arm64
+FROM --platform=riscv64 ${PKG_LVM2} AS pkg-lvm2-riscv64
 
-FROM --platform=amd64 ${PKG_LIBAIO} AS pkg-libaio-amd64
-FROM --platform=arm64 ${PKG_LIBAIO} AS pkg-libaio-arm64
+FROM --platform=riscv64 ${PKG_LIBAIO} AS pkg-libaio-riscv64
 
-FROM --platform=amd64 ${PKG_MUSL} AS pkg-musl-amd64
-FROM --platform=arm64 ${PKG_MUSL} AS pkg-musl-arm64
+FROM --platform=riscv64 ${PKG_MUSL} AS pkg-musl-riscv64
 
-FROM --platform=amd64 ${PKG_RUNC} AS pkg-runc-amd64
-FROM --platform=arm64 ${PKG_RUNC} AS pkg-runc-arm64
+FROM --platform=riscv64 ${PKG_RUNC} AS pkg-runc-riscv64
 
-FROM --platform=amd64 ${PKG_XFSPROGS} AS pkg-xfsprogs-amd64
-FROM --platform=arm64 ${PKG_XFSPROGS} AS pkg-xfsprogs-arm64
+FROM --platform=riscv64 ${PKG_XFSPROGS} AS pkg-xfsprogs-riscv64
 
-FROM --platform=amd64 ${PKG_UTIL_LINUX} AS pkg-util-linux-amd64
-FROM --platform=arm64 ${PKG_UTIL_LINUX} AS pkg-util-linux-arm64
+FROM --platform=riscv64 ${PKG_UTIL_LINUX} AS pkg-util-linux-riscv64
 
-FROM --platform=amd64 ${PKG_KMOD} AS pkg-kmod-amd64
-FROM --platform=arm64 ${PKG_KMOD} AS pkg-kmod-arm64
+FROM --platform=riscv64 ${PKG_KMOD} AS pkg-kmod-riscv64
 
 FROM ${PKG_KERNEL} AS pkg-kernel
-FROM --platform=amd64 ${PKG_KERNEL} AS pkg-kernel-amd64
-FROM --platform=arm64 ${PKG_KERNEL} AS pkg-kernel-arm64
+FROM --platform=riscv64 ${PKG_KERNEL} AS pkg-kernel-riscv64
 
 # Resolve package images using ${EXTRAS} to be used later in COPY --from=.
 
@@ -302,8 +278,6 @@ COPY --from=embed-abbrev-generate /src/_out/talos-metadata /_out/talos-metadata
 COPY --from=embed-abbrev-generate /src/_out/signing_key.x509 /_out/signing_key.x509
 
 FROM scratch AS ipxe-generate
-COPY --from=pkg-ipxe-amd64 /usr/libexec/snp.efi /amd64/snp.efi
-COPY --from=pkg-ipxe-arm64 /usr/libexec/snp.efi /arm64/snp.efi
 
 FROM --platform=${BUILDPLATFORM} scratch AS generate
 COPY --from=proto-format-build /src/api /api/
@@ -352,18 +326,11 @@ RUN --mount=type=cache,target=/.cache govulncheck ./...
 
 # The init target builds the init binary.
 
-FROM base AS init-build-amd64
+FROM base AS init-build-riscv64
 WORKDIR /src/internal/app/init
 ARG GO_BUILDFLAGS
 ARG GO_LDFLAGS
-RUN --mount=type=cache,target=/.cache GOOS=linux GOARCH=amd64 GOAMD64=v1 go build ${GO_BUILDFLAGS} -ldflags "${GO_LDFLAGS}" -o /init
-RUN chmod +x /init
-
-FROM base AS init-build-arm64
-WORKDIR /src/internal/app/init
-ARG GO_BUILDFLAGS
-ARG GO_LDFLAGS
-RUN --mount=type=cache,target=/.cache GOOS=linux GOARCH=arm64 go build ${GO_BUILDFLAGS} -ldflags "${GO_LDFLAGS}" -o /init
+RUN --mount=type=cache,target=/.cache GOOS=linux GOARCH=riscv64 go build ${GO_BUILDFLAGS} -ldflags "${GO_LDFLAGS}" -o /init
 RUN chmod +x /init
 
 FROM init-build-${TARGETARCH} AS init-build
@@ -373,19 +340,11 @@ COPY --from=init-build /init /init
 
 # The machined target builds the machined binary.
 
-FROM base AS machined-build-amd64
+FROM base AS machined-build-riscv64
 WORKDIR /src/internal/app/machined
 ARG GO_BUILDFLAGS
 ARG GO_LDFLAGS
-ARG GOAMD64
-RUN --mount=type=cache,target=/.cache GOOS=linux GOARCH=amd64 GOAMD64=${GOAMD64} go build ${GO_BUILDFLAGS} -ldflags "${GO_LDFLAGS}" -o /machined
-RUN chmod +x /machined
-
-FROM base AS machined-build-arm64
-WORKDIR /src/internal/app/machined
-ARG GO_BUILDFLAGS
-ARG GO_LDFLAGS
-RUN --mount=type=cache,target=/.cache GOOS=linux GOARCH=arm64 go build ${GO_BUILDFLAGS} -ldflags "${GO_LDFLAGS}" -o /machined
+RUN --mount=type=cache,target=/.cache GOOS=linux GOARCH=riscv64 go build ${GO_BUILDFLAGS} -ldflags "${GO_LDFLAGS}" -o /machined
 RUN chmod +x /machined
 
 FROM machined-build-${TARGETARCH} AS machined-build
@@ -520,131 +479,50 @@ FROM scratch AS sd-stub
 ARG TARGETARCH
 COPY --from=pkg-sd-boot /*.efi.stub /sd-stub-${TARGETARCH}.efi
 
-FROM tools AS depmod-amd64
+FROM tools AS depmod-riscv64
 WORKDIR /staging
-COPY hack/modules-amd64.txt .
-COPY --from=pkg-kernel-amd64 /lib/modules lib/modules
+COPY hack/modules-riscv64.txt .
+COPY --from=pkg-kernel-riscv64 /lib/modules lib/modules
 RUN <<EOF
 set -euo pipefail
 
 KERNEL_VERSION=$(ls lib/modules)
 
-xargs -a modules-amd64.txt -I {} install -D lib/modules/${KERNEL_VERSION}/{} /build/lib/modules/${KERNEL_VERSION}/{}
+xargs -a modules-riscv64.txt -I {} install -D lib/modules/${KERNEL_VERSION}/{} /build/lib/modules/${KERNEL_VERSION}/{}
 
 depmod -b /build ${KERNEL_VERSION}
 EOF
 
-FROM scratch AS modules-amd64
-COPY --from=depmod-amd64 /build/lib/modules /lib/modules
-
-FROM tools AS depmod-arm64
-WORKDIR /staging
-COPY hack/modules-arm64.txt .
-COPY --from=pkg-kernel-arm64 /lib/modules lib/modules
-RUN <<EOF
-set -euo pipefail
-
-KERNEL_VERSION=$(ls lib/modules)
-
-xargs -a modules-arm64.txt -I {} install -D lib/modules/${KERNEL_VERSION}/{} /build/lib/modules/${KERNEL_VERSION}/{}
-
-depmod -b /build ${KERNEL_VERSION}
-EOF
-
-FROM scratch AS modules-arm64
-COPY --from=depmod-arm64 /build/lib/modules /lib/modules
+FROM scratch AS modules-riscv64
+COPY --from=depmod-riscv64 /build/lib/modules /lib/modules
 
 # The rootfs target provides the Talos rootfs.
-FROM build AS rootfs-base-amd64
+FROM build AS rootfs-base-riscv64
 COPY --link --from=pkg-fhs / /rootfs
 COPY --link --from=pkg-ca-certificates / /rootfs
-COPY --link --from=pkg-cryptsetup-amd64 / /rootfs
-COPY --link --from=pkg-containerd-amd64 / /rootfs
-COPY --link --from=pkg-dosfstools-amd64 / /rootfs
-COPY --link --from=pkg-eudev-amd64 / /rootfs
-COPY --link --from=pkg-iptables-amd64 / /rootfs
-COPY --link --from=pkg-libinih-amd64 / /rootfs
-COPY --link --from=pkg-libjson-c-amd64 / /rootfs
-COPY --link --from=pkg-libpopt-amd64 / /rootfs
-COPY --link --from=pkg-liburcu-amd64 / /rootfs
-COPY --link --from=pkg-openssl-amd64 / /rootfs
-COPY --link --from=pkg-libseccomp-amd64 / /rootfs
-COPY --link --from=pkg-lvm2-amd64 / /rootfs
-COPY --link --from=pkg-libaio-amd64 / /rootfs
-COPY --link --from=pkg-musl-amd64 / /rootfs
-COPY --link --from=pkg-runc-amd64 / /rootfs
-COPY --link --from=pkg-xfsprogs-amd64 / /rootfs
-COPY --link --from=pkg-util-linux-amd64 /lib/libblkid.* /rootfs/lib/
-COPY --link --from=pkg-util-linux-amd64 /lib/libuuid.* /rootfs/lib/
-COPY --link --from=pkg-util-linux-amd64 /lib/libmount.* /rootfs/lib/
-COPY --link --from=pkg-kmod-amd64 /usr/lib/libkmod.* /rootfs/lib/
-COPY --link --from=pkg-kmod-amd64 /usr/bin/kmod /rootfs/sbin/modprobe
-COPY --link --from=modules-amd64 /lib/modules /rootfs/lib/modules
-COPY --link --from=machined-build-amd64 /machined /rootfs/sbin/init
-RUN <<END
-    # the orderly_poweroff call by the kernel will call '/sbin/poweroff'
-    ln /rootfs/sbin/init /rootfs/sbin/poweroff
-    chmod +x /rootfs/sbin/poweroff
-    # some extensions like qemu-guest agent will call '/sbin/shutdown'
-    ln /rootfs/sbin/init /rootfs/sbin/shutdown
-    chmod +x /rootfs/sbin/shutdown
-    ln /rootfs/sbin/init /rootfs/sbin/wrapperd
-    chmod +x /rootfs/sbin/wrapperd
-    ln /rootfs/sbin/init /rootfs/sbin/dashboard
-    chmod +x /rootfs/sbin/dashboard
-END
-# NB: We run the cleanup step before creating extra directories, files, and
-# symlinks to avoid accidentally cleaning them up.
-COPY ./hack/cleanup.sh /toolchain/bin/cleanup.sh
-RUN <<END
-    cleanup.sh /rootfs
-    mkdir -pv /rootfs/{boot/EFI,etc/cri/conf.d/hosts,lib/firmware,usr/local/share,usr/share/zoneinfo/Etc,mnt,system,opt,.extra}
-    mkdir -pv /rootfs/{etc/kubernetes/manifests,etc/cni/net.d,usr/libexec/kubernetes,/usr/local/lib/kubelet/credentialproviders}
-    mkdir -pv /rootfs/opt/{containerd/bin,containerd/lib}
-END
-COPY --chmod=0644 hack/zoneinfo/Etc/UTC /rootfs/usr/share/zoneinfo/Etc/UTC
-COPY --chmod=0644 hack/nfsmount.conf /rootfs/etc/nfsmount.conf
-COPY --chmod=0644 hack/containerd.toml /rootfs/etc/containerd/config.toml
-COPY --chmod=0644 hack/cri-containerd.toml /rootfs/etc/cri/containerd.toml
-COPY --chmod=0644 hack/cri-plugin.part /rootfs/etc/cri/conf.d/00-base.part
-COPY --chmod=0644 hack/udevd/80-net-name-slot.rules /rootfs/usr/lib/udev/rules.d/
-COPY --chmod=0644 hack/lvm.conf /rootfs/etc/lvm/lvm.conf
-RUN <<END
-    ln -s /usr/share/zoneinfo/Etc/UTC /rootfs/etc/localtime
-    touch /rootfs/etc/{extensions.yaml,resolv.conf,hosts,os-release,machine-id,cri/conf.d/cri.toml,cri/conf.d/01-registries.part,cri/conf.d/20-customization.part}
-    ln -s ca-certificates /rootfs/etc/ssl/certs/ca-certificates.crt
-    ln -s /etc/ssl /rootfs/etc/pki
-    ln -s /etc/ssl /rootfs/usr/share/ca-certificates
-    ln -s /etc/ssl /rootfs/usr/local/share/ca-certificates
-    ln -s /etc/ssl /rootfs/etc/ca-certificates
-END
-
-FROM build AS rootfs-base-arm64
-COPY --link --from=pkg-fhs / /rootfs
-COPY --link --from=pkg-ca-certificates / /rootfs
-COPY --link --from=pkg-cryptsetup-arm64 / /rootfs
-COPY --link --from=pkg-containerd-arm64 / /rootfs
-COPY --link --from=pkg-dosfstools-arm64 / /rootfs
-COPY --link --from=pkg-eudev-arm64 / /rootfs
-COPY --link --from=pkg-iptables-arm64 / /rootfs
-COPY --link --from=pkg-libinih-arm64 / /rootfs
-COPY --link --from=pkg-libjson-c-arm64 / /rootfs
-COPY --link --from=pkg-libpopt-arm64 / /rootfs
-COPY --link --from=pkg-liburcu-arm64 / /rootfs
-COPY --link --from=pkg-openssl-arm64 / /rootfs
-COPY --link --from=pkg-libseccomp-arm64 / /rootfs
-COPY --link --from=pkg-lvm2-arm64 / /rootfs
-COPY --link --from=pkg-libaio-arm64 / /rootfs
-COPY --link --from=pkg-musl-arm64 / /rootfs
-COPY --link --from=pkg-runc-arm64 / /rootfs
-COPY --link --from=pkg-xfsprogs-arm64 / /rootfs
-COPY --link --from=pkg-util-linux-arm64 /lib/libblkid.* /rootfs/lib/
-COPY --link --from=pkg-util-linux-arm64 /lib/libuuid.* /rootfs/lib/
-COPY --link --from=pkg-util-linux-arm64 /lib/libmount.* /rootfs/lib/
-COPY --link --from=pkg-kmod-arm64 /usr/lib/libkmod.* /rootfs/lib/
-COPY --link --from=pkg-kmod-arm64 /usr/bin/kmod /rootfs/sbin/modprobe
-COPY --link --from=modules-arm64 /lib/modules /rootfs/lib/modules
-COPY --link --from=machined-build-arm64 /machined /rootfs/sbin/init
+COPY --link --from=pkg-cryptsetup-riscv64 / /rootfs
+COPY --link --from=pkg-containerd-riscv64 / /rootfs
+COPY --link --from=pkg-dosfstools-riscv64 / /rootfs
+COPY --link --from=pkg-eudev-riscv64 / /rootfs
+COPY --link --from=pkg-iptables-riscv64 / /rootfs
+COPY --link --from=pkg-libinih-riscv64 / /rootfs
+COPY --link --from=pkg-libjson-c-riscv64 / /rootfs
+COPY --link --from=pkg-libpopt-riscv64 / /rootfs
+COPY --link --from=pkg-liburcu-riscv64 / /rootfs
+COPY --link --from=pkg-openssl-riscv64 / /rootfs
+COPY --link --from=pkg-libseccomp-riscv64 / /rootfs
+COPY --link --from=pkg-lvm2-riscv64 / /rootfs
+COPY --link --from=pkg-libaio-riscv64 / /rootfs
+COPY --link --from=pkg-musl-riscv64 / /rootfs
+COPY --link --from=pkg-runc-riscv64 / /rootfs
+COPY --link --from=pkg-xfsprogs-riscv64 / /rootfs
+COPY --link --from=pkg-util-linux-riscv64 /lib/libblkid.* /rootfs/lib/
+COPY --link --from=pkg-util-linux-riscv64 /lib/libuuid.* /rootfs/lib/
+COPY --link --from=pkg-util-linux-riscv64 /lib/libmount.* /rootfs/lib/
+COPY --link --from=pkg-kmod-riscv64 /usr/lib/libkmod.* /rootfs/lib/
+COPY --link --from=pkg-kmod-riscv64 /usr/bin/kmod /rootfs/sbin/modprobe
+COPY --link --from=modules-riscv64 /lib/modules /rootfs/lib/modules
+COPY --link --from=machined-build-riscv64 /machined /rootfs/sbin/init
 RUN <<END
     # the orderly_poweroff call by the kernel will call '/sbin/poweroff'
     ln /rootfs/sbin/init /rootfs/sbin/poweroff
@@ -687,31 +565,23 @@ FROM rootfs-base-${TARGETARCH} AS rootfs-base
 RUN find /rootfs -print0 \
     | xargs -0r touch --no-dereference --date="@${SOURCE_DATE_EPOCH}"
 
-FROM rootfs-base-arm64 AS rootfs-squashfs-arm64
+FROM rootfs-base-riscv64 AS rootfs-squashfs-riscv64
 RUN find /rootfs -print0 \
     | xargs -0r touch --no-dereference --date="@${SOURCE_DATE_EPOCH}"
 RUN mksquashfs /rootfs /rootfs.sqsh -all-root -noappend -comp xz -Xdict-size 100% -no-progress
 
-FROM rootfs-base-amd64 AS rootfs-squashfs-amd64
-RUN find /rootfs -print0 \
-    | xargs -0r touch --no-dereference --date="@${SOURCE_DATE_EPOCH}"
-RUN mksquashfs /rootfs /rootfs.sqsh -all-root -noappend -comp xz -Xdict-size 100% -no-progress
-
-FROM scratch AS squashfs-arm64
-COPY --from=rootfs-squashfs-arm64 /rootfs.sqsh /
-
-FROM scratch AS squashfs-amd64
-COPY --from=rootfs-squashfs-amd64 /rootfs.sqsh /
+FROM scratch AS squashfs-riscv64
+COPY --from=rootfs-squashfs-riscv64 /rootfs.sqsh /
 
 FROM scratch AS rootfs
 COPY --from=rootfs-base /rootfs /
 
 # The initramfs target provides the Talos initramfs image.
 
-FROM build AS initramfs-archive-arm64
+FROM build AS initramfs-archive-riscv64
 WORKDIR /initramfs
-COPY --from=squashfs-arm64 /rootfs.sqsh .
-COPY --from=init-build-arm64 /init .
+COPY --from=squashfs-riscv64 /rootfs.sqsh .
+COPY --from=init-build-riscv64 /init .
 RUN find . -print0 \
     | xargs -0r touch --no-dereference --date="@${SOURCE_DATE_EPOCH}"
 RUN set -o pipefail \
@@ -721,20 +591,7 @@ RUN set -o pipefail \
     | xz -v -C crc32 -0 -e -T 0 -z \
     > /initramfs.xz
 
-FROM build AS initramfs-archive-amd64
-WORKDIR /initramfs
-COPY --from=squashfs-amd64 /rootfs.sqsh .
-COPY --from=init-build-amd64 /init .
-RUN find . -print0 \
-    | xargs -0r touch --no-dereference --date="@${SOURCE_DATE_EPOCH}"
-RUN set -o pipefail \
-    && find . 2>/dev/null \
-    | LC_ALL=c sort \
-    | cpio --reproducible -H newc -o \
-    | xz -v -C crc32 -0 -e -T 0 -z \
-    > /initramfs.xz
-
-FROM initramfs-archive-${TARGETARCH} AS initramfs-archive
+FROM initramfs-archive-riscv64 AS initramfs-archive
 
 FROM scratch AS initramfs
 ARG TARGETARCH
@@ -761,23 +618,16 @@ RUN chmod +x /installer
 FROM alpine:3.18.4 AS unicode-pf2
 RUN apk add --no-cache --update --no-scripts grub
 
-FROM scratch AS install-artifacts-amd64
-COPY --from=pkg-kernel-amd64 /boot/vmlinuz /usr/install/amd64/vmlinuz
-COPY --from=initramfs-archive-amd64 /initramfs.xz /usr/install/amd64/initramfs.xz
-COPY --from=pkg-sd-boot-amd64 /linuxx64.efi.stub /usr/install/amd64/systemd-stub.efi
-COPY --from=pkg-sd-boot-amd64 /systemd-bootx64.efi /usr/install/amd64/systemd-boot.efi
-
-FROM scratch AS install-artifacts-arm64
-COPY --from=pkg-kernel-arm64 /boot/vmlinuz /usr/install/arm64/vmlinuz
-COPY --from=initramfs-archive-arm64 /initramfs.xz /usr/install/arm64/initramfs.xz
-COPY --from=pkg-sd-boot-arm64 /linuxaa64.efi.stub /usr/install/arm64/systemd-stub.efi
-COPY --from=pkg-sd-boot-arm64 /systemd-bootaa64.efi /usr/install/arm64/systemd-boot.efi
+FROM scratch AS install-artifacts-riscv64
+COPY --from=pkg-kernel-riscv64 /boot/vmlinuz /usr/install/riscv64/vmlinuz
+COPY --from=initramfs-archive-riscv64 /initramfs.xz /usr/install/riscv64/initramfs.xz
+COPY --from=pkg-sd-boot-riscv64 /linuxriscv64.efi.stub /usr/install/riscv64/systemd-stub.efi
+COPY --from=pkg-sd-boot-riscv64 /systemd-bootriscv64.efi /usr/install/riscv64/systemd-boot.efi
 
 FROM scratch AS install-artifacts-all
-COPY --from=install-artifacts-amd64 / /
-COPY --from=install-artifacts-arm64 / /
+COPY --from=install-artifacts-riscv64 / /
 
-FROM install-artifacts-${TARGETARCH} AS install-artifacts-targetarch
+FROM install-artifacts-all AS install-artifacts-targetarch
 
 FROM install-artifacts-${INSTALLER_ARCH} AS install-artifacts
 
@@ -806,8 +656,7 @@ ENV TARGETARCH ${TARGETARCH}
 COPY --from=installer-build /installer /bin/installer
 COPY --chmod=0644 hack/extra-modules.conf /etc/modules.d/10-extra-modules.conf
 COPY --from=pkg-grub / /
-COPY --from=pkg-grub-arm64 /usr/lib/grub /usr/lib/grub
-COPY --from=pkg-grub-amd64 /usr/lib/grub /usr/lib/grub
+COPY --from=pkg-grub-riscv64 /usr/lib/grub /usr/lib/grub
 COPY --from=unicode-pf2 /usr/share/grub/unicode.pf2 /usr/share/grub/unicode.pf2
 RUN ln /bin/installer /bin/imager
 RUN find /bin /etc /lib /usr /sbin | grep -Ev '/etc/hosts|/etc/resolv.conf' \

@@ -192,8 +192,11 @@ func (e *Etcd) Runner(r runtime.Runtime) (runner.Runner, error) {
 
 	env := environment.Get(r.Config())
 
-	if goruntime.GOARCH == "arm64" {
+	switch goruntime.GOARCH {
+	case "arm64":
 		env = append(env, "ETCD_UNSUPPORTED_ARCH=arm64")
+	case "riscv64":
+		env = append(env, "ETCD_UNSUPPORTED_ARCH=riscv64")
 	}
 
 	env = append(env, "ETCD_CIPHER_SUITES=TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305,TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305") //nolint:lll
