@@ -64,7 +64,7 @@ func (p *Profile) SecureBootEnabled() bool {
 //
 //nolint:gocyclo,cyclop
 func (p *Profile) Validate() error {
-	if p.Arch != amd64 && p.Arch != arm64 {
+	if p.Arch != amd64 && p.Arch != arm64 && p.Arch != riscv64 {
 		return fmt.Errorf("invalid arch %q", p.Arch)
 	}
 
@@ -77,8 +77,8 @@ func (p *Profile) Validate() error {
 			return errors.New("overlay is not supported with board options")
 		}
 
-		if p.Arch != arm64 || p.Platform != "metal" {
-			return errors.New("board is only supported for metal arm64")
+		if (p.Arch != arm64 && p.Arch != riscv64) || p.Platform != "metal" {
+			return errors.New("board is only supported for metal arm64 or riscv64")
 		}
 	}
 
@@ -128,6 +128,9 @@ func (p *Profile) OutputPath() string {
 
 	if p.Board != "" {
 		path += "-" + p.Board
+	}
+	if p.Overlay != nil && p.Overlay.Name != "" {
+		path += "-" + p.Overlay.Name
 	}
 
 	path += "-" + p.Arch
