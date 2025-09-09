@@ -362,7 +362,7 @@ func (i *Imager) buildCmdline(ctx context.Context) error {
 
 	cmdline.SetAll(p.KernelArgs(i.prof.Arch, q).Strings())
 
-	if q.SupportsHaltIfInstalled() && i.prof.Output.Kind == profile.OutKindISO {
+	if true || q.SupportsHaltIfInstalled() && i.prof.Output.Kind == profile.OutKindISO {
 		cmdline.Append(constants.KernelParamHaltIfInstalled, "1")
 	}
 

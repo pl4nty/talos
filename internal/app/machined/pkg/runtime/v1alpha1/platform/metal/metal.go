@@ -162,6 +162,10 @@ func (m *Metal) KernelArgs(arch string, quirks quirks.Quirks) procfs.Parameters 
 		return procfs.Parameters{
 			procfs.NewParameter("console").Append("ttyAMA0").Append("tty0"),
 		}
+	case "riscv64":
+		return []*procfs.Parameter{
+			procfs.NewParameter("console").Append("ttyAMA0").Append("tty0"),
+		}
 	default:
 		return nil
 	}
