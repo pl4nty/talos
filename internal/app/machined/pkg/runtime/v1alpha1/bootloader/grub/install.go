@@ -29,6 +29,7 @@ import (
 const (
 	amd64 = "amd64"
 	arm64 = "arm64"
+	riscv64 = "riscv64"
 )
 
 // Install validates the grub configuration and writes it to the disk.
@@ -163,8 +164,12 @@ func (c *Config) generateGrubImage(opts options.InstallOptions) error {
 		platform = "x86_64-efi"
 		prefix = "(hd0,gpt3)/grub" // EFI, BIOS, BOOT
 	case "arm64":
-		platform = "arm64-efi"
+		platform = opts.Arch + "-efi"
 		prefix = "(hd0,gpt2)/grub" // EFI, BOOT
+	// TODO why does riscv64 have a BIOS partition?
+	case "riscv64":
+		platform = opts.Arch + "-efi"
+		prefix = "(hd0,gpt3)/grub" // EFI, BIOS, BOOT
 	default:
 		return fmt.Errorf("unsupported architecture for grub image: %s", opts.Arch)
 	}
@@ -300,8 +305,8 @@ func (c *Config) runGrubInstall(opts options.InstallOptions, efiMode bool) error
 		}
 
 		platforms = append(platforms, "i386-pc")
-	case arm64:
-		platforms = []string{"arm64-efi"}
+	case arm64, riscv64:
+		platforms = []string{opts.Arch + "-efi"}
 	}
 
 	if runtime.GOARCH == amd64 && opts.Arch == amd64 {

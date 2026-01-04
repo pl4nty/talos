@@ -1,6 +1,12 @@
-# THIS FILE WAS AUTOMATICALLY GENERATED, PLEASE DO NOT EDIT.
-#
-# Generated on 2025-12-26T07:10:19Z by kres 26be706.
+env:
+  USERNAME: ${{ github.repository_owner }}
+  PKGS_PREFIX: ghcr.io/${{ github.repository_owner }}
+  # 6.17.7 https://github.com/pl4nty/talos-pkgs/commit/2c22635
+  # next-20251121 https://github.com/pl4nty/talos-pkgs/commit/06df2a2
+  # next-20251121 with pwm-fan https://github.com/pl4nty/talos-pkgs/commit/c7b5821
+  # next-20251121 with pwm-fan and config https://github.com/pl4nty/talos-pkgs/commit/197af07
+  # 6.19-rc3 https://github.com/pl4nty/talos-pkgs/commit/85dc6fb
+  PKGS: 85dc6fb
 
 concurrency:
   group: ${{ github.head_ref || github.run_id }}
@@ -5013,8 +5019,9 @@ jobs:
       issues: read
       packages: write
       pull-requests: read
+      id-token: write
     runs-on:
-      group: large
+      - ubuntu-latest
     if: (!startsWith(github.head_ref, 'renovate/') && !startsWith(github.head_ref, 'dependabot/')) && github.event_name != 'pull_request' && !startsWith(github.ref, 'refs/tags/')
     steps:
       - name: gather-system-info
@@ -5047,21 +5054,25 @@ jobs:
       - name: Unshallow
         run: |
           git fetch --prune --unshallow
+      - name: Set up crane
+        run: |
+          curl -sL "https://github.com/google/go-containerregistry/releases/latest/download/go-containerregistry_Linux_x86_64.tar.gz" > go-containerregistry.tar.gz
+          tar -zxvf go-containerregistry.tar.gz -C /usr/local/bin/ crane
+      - name: Set up Namespace CLI
+        uses: namespacelabs/nscloud-setup@v0
       - name: Set up Docker Buildx
         id: setup-buildx
-        uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435 # version: v3.11.1
-        with:
-          driver: remote
-          endpoint: tcp://buildkit-amd64.ci.svc.cluster.local:1234
+        uses: namespacelabs/nscloud-setup-buildx-action@v0
         timeout-minutes: 10
       - name: build
         env:
-          PLATFORM: linux/amd64,linux/arm64
+          PLATFORM: linux/amd64
         run: |
-          make talosctl-all kernel sd-boot sd-stub initramfs installer-base imager talos
+          make talosctl-linux-amd64
       - name: release-notes
         run: |
           make release-notes
+        continue-on-error: true
       - name: login-to-registry
         uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef # version: v3.6.0
         with:
@@ -5069,16 +5080,19 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
       - name: push
-        env:
-          PLATFORM: linux/amd64,linux/arm64
         run: |
-          make push
+          make installer-base imager PUSH=true PLATFORM=linux/amd64
+          make installer initramfs PUSH=true PLATFORM=linux/riscv64
       - name: push-latest
         if: github.ref == 'refs/heads/main'
         env:
-          PLATFORM: linux/amd64,linux/arm64
+          PLATFORM: linux/amd64
         run: |
-          make push-latest
+          make installer-base imager PUSH=true IMAGE_TAG_OUT=latest
+      - name: save artifacts
+        uses: nanoufo/action-upload-artifacts-and-release-assets@v2
+        with:
+          path: _out/*.xz
   tag:
     permissions:
       actions: read

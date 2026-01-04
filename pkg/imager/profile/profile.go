@@ -63,7 +63,7 @@ func (p *Profile) SecureBootEnabled() bool {
 //
 //nolint:gocyclo,cyclop
 func (p *Profile) Validate() error {
-	if p.Arch != amd64 && p.Arch != arm64 {
+	if p.Arch != amd64 && p.Arch != arm64 && p.Arch != riscv64 {
 		return fmt.Errorf("invalid arch %q", p.Arch)
 	}
 
@@ -127,6 +127,10 @@ func (p *Profile) Validate() error {
 //nolint:gocyclo
 func (p *Profile) OutputPath() string {
 	path := p.Platform
+
+	if p.Overlay != nil && p.Overlay.Name != "" {
+		path += "-" + p.Overlay.Name
+	}
 
 	path += "-" + p.Arch
 

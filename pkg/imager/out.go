@@ -428,7 +428,7 @@ func calculateDirectorySizeWithOverhead(dir string, overheadPercentage int) (int
 func (i *Imager) outInstaller(ctx context.Context, path string, report *reporter.Reporter) error {
 	printf := progressPrintf(report, reporter.Update{Message: "building installer...", Status: reporter.StatusRunning})
 
-	baseInstallerImg, err := i.prof.Input.BaseInstaller.Pull(ctx, i.prof.Arch, printf)
+	baseInstallerImg, err := i.prof.Input.BaseInstaller.Pull(ctx, "amd64", printf)
 	if err != nil {
 		return err
 	}

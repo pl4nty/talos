@@ -12,6 +12,31 @@
 
 ---
 
+# RISC-V Fork
+
+A fork of Talos Linux implementing the RISC-V CPU architecture. Please give it a try and [report issues here](https://github.com/pl4nty/talos/issues/new/choose) instead of upstream.
+
+Currently supports:
+
+* linux-next 20251219 with SiFive, SpacemiT, StarFive, and T-Head modules. See [pkgs](https://github.com/pl4nty/talos-pkgs/tree/main/kernel) for more details
+* U-Boot with GRUB, not UEFI with systemd-boot
+* Worker nodes, not control plane
+
+Tested with these platforms, but I'd really appreciate testing on other devices. Create an issue if you want help or have feedback!
+
+* QEMU
+* Sipeed LicheePi 4A
+
+To get started, download an image from the latest [GitHub run](https://github.com/pl4nty/talos-sbc-riscv64/actions/workflows/ci.yaml) and flash it, or build an image with `imager`:
+
+```sh
+docker run --rm -t -v /dev:/dev -v -v $(pwd)/_out:/out -e SOURCE_DATE_EPOCH=1717304697 --network=host --privileged ghcr.io/pl4nty/imager --arch riscv64 \
+--base-installer-image ghcr.io/pl4nty/installer-base --overlay-image ghcr.io/pl4nty/sbc-riscv64 \
+--overlay-name licheepi-4a
+```
+
+---
+
 **Talos** is a modern OS for running Kubernetes: secure, immutable, and minimal.
 Talos is fully open source, production-ready, and supported by the people at [Sidero Labs](https://www.SideroLabs.com/).
 All system management is done via an API - there is no shell or interactive console.
