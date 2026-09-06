@@ -34,8 +34,9 @@ import (
 )
 
 const (
-	arm64 = "arm64"
-	amd64 = "amd64"
+	arm64   = "arm64"
+	amd64   = "amd64"
+	riscv64 = "riscv64"
 )
 
 // Input describes inputs for image generation.
