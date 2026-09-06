@@ -81,137 +81,59 @@ FROM ${PKG_CA_CERTIFICATES} AS pkg-ca-certificates
  # used only for the unit-tests environment
 FROM ${PKG_BTRFSPROGS} AS pkg-btrfsprogs
 
-FROM --platform=amd64 ${PKG_APPARMOR} AS pkg-apparmor-amd64
-FROM --platform=arm64 ${PKG_APPARMOR} AS pkg-apparmor-arm64
-
-FROM --platform=amd64 ${PKG_CRYPTSETUP} AS pkg-cryptsetup-amd64
-FROM --platform=arm64 ${PKG_CRYPTSETUP} AS pkg-cryptsetup-arm64
-
-FROM --platform=amd64 ${PKG_CONTAINERD} AS pkg-containerd-amd64
-FROM --platform=arm64 ${PKG_CONTAINERD} AS pkg-containerd-arm64
-
-FROM --platform=amd64 ${PKG_DOSFSTOOLS} AS pkg-dosfstools-amd64
-FROM --platform=arm64 ${PKG_DOSFSTOOLS} AS pkg-dosfstools-arm64
-
-FROM --platform=amd64 ${PKG_E2FSPROGS} AS pkg-e2fsprogs-amd64
-FROM --platform=arm64 ${PKG_E2FSPROGS} AS pkg-e2fsprogs-arm64
-
-FROM --platform=amd64 ${PKG_SYSTEMD_UDEVD} AS pkg-systemd-udevd-amd64
-FROM --platform=arm64 ${PKG_SYSTEMD_UDEVD} AS pkg-systemd-udevd-arm64
-
-FROM --platform=amd64 ${PKG_LIBCAP} AS pkg-libcap-amd64
-FROM --platform=arm64 ${PKG_LIBCAP} AS pkg-libcap-arm64
-
+FROM --platform=riscv64 ${PKG_APPARMOR} AS pkg-apparmor-riscv64
+FROM --platform=riscv64 ${PKG_CRYPTSETUP} AS pkg-cryptsetup-riscv64
+FROM --platform=riscv64 ${PKG_CONTAINERD} AS pkg-containerd-riscv64
+FROM --platform=riscv64 ${PKG_DOSFSTOOLS} AS pkg-dosfstools-riscv64
+FROM --platform=riscv64 ${PKG_E2FSPROGS} AS pkg-e2fsprogs-riscv64
+FROM --platform=riscv64 ${PKG_SYSTEMD_UDEVD} AS pkg-systemd-udevd-riscv64
+FROM --platform=riscv64 ${PKG_LIBCAP} AS pkg-libcap-riscv64
 FROM ${PKG_GRUB} AS pkg-grub
-FROM --platform=amd64 ${PKG_GRUB} AS pkg-grub-amd64
-FROM --platform=arm64 ${PKG_GRUB} AS pkg-grub-arm64
-
+FROM --platform=riscv64 ${PKG_GRUB} AS pkg-grub-riscv64
 FROM ${PKG_SD_BOOT} AS pkg-sd-boot
-FROM --platform=amd64 ${PKG_SD_BOOT} AS pkg-sd-boot-amd64
-FROM --platform=arm64 ${PKG_SD_BOOT} AS pkg-sd-boot-arm64
-
-FROM --platform=amd64 ${PKG_IPTABLES} AS pkg-iptables-amd64
-FROM --platform=arm64 ${PKG_IPTABLES} AS pkg-iptables-arm64
-
-FROM --platform=amd64 ${PKG_IPXE} AS pkg-ipxe-amd64
-FROM --platform=arm64 ${PKG_IPXE} AS pkg-ipxe-arm64
-
-FROM --platform=amd64 ${PKG_LIBARCHIVE} AS pkg-libarchive-amd64
-FROM --platform=arm64 ${PKG_LIBARCHIVE} AS pkg-libarchive-arm64
-
-FROM --platform=amd64 ${PKG_LIBATTR} AS pkg-libattr-amd64
-FROM --platform=arm64 ${PKG_LIBATTR} AS pkg-libattr-arm64
-
-FROM --platform=amd64 ${PKG_LIBINIH} AS pkg-libinih-amd64
-FROM --platform=arm64 ${PKG_LIBINIH} AS pkg-libinih-arm64
-
-FROM --platform=amd64 ${PKG_LIBJANSSON} AS pkg-libjansson-amd64
-FROM --platform=arm64 ${PKG_LIBJANSSON} AS pkg-libjansson-arm64
-
-FROM --platform=amd64 ${PKG_LIBJSON_C} AS pkg-libjson-c-amd64
-FROM --platform=arm64 ${PKG_LIBJSON_C} AS pkg-libjson-c-arm64
-
-FROM --platform=amd64 ${PKG_LIBMNL} AS pkg-libmnl-amd64
-FROM --platform=arm64 ${PKG_LIBMNL} AS pkg-libmnl-arm64
-
-FROM --platform=amd64 ${PKG_LIBNFTNL} AS pkg-libnftnl-amd64
-FROM --platform=arm64 ${PKG_LIBNFTNL} AS pkg-libnftnl-arm64
-
-FROM --platform=amd64 ${PKG_LIBPOPT} AS pkg-libpopt-amd64
-FROM --platform=arm64 ${PKG_LIBPOPT} AS pkg-libpopt-arm64
-
-FROM --platform=amd64 ${PKG_LIBURCU} AS pkg-liburcu-amd64
-FROM --platform=arm64 ${PKG_LIBURCU} AS pkg-liburcu-arm64
-
-FROM --platform=amd64 ${PKG_LIBUCONTEXT} AS pkg-libucontext-amd64
-FROM --platform=arm64 ${PKG_LIBUCONTEXT} AS pkg-libucontext-arm64
-
-FROM --platform=amd64 ${PKG_LIBSEPOL} AS pkg-libsepol-amd64
-FROM --platform=arm64 ${PKG_LIBSEPOL} AS pkg-libsepol-arm64
-
-FROM --platform=amd64 ${PKG_LIBSELINUX} AS pkg-libselinux-amd64
-FROM --platform=arm64 ${PKG_LIBSELINUX} AS pkg-libselinux-arm64
-
-FROM --platform=amd64 ${PKG_PCRE2} AS pkg-pcre2-amd64
-FROM --platform=arm64 ${PKG_PCRE2} AS pkg-pcre2-arm64
-
-FROM --platform=amd64 ${PKG_OPENSSL} AS pkg-openssl-amd64
-FROM --platform=arm64 ${PKG_OPENSSL} AS pkg-openssl-arm64
-
+FROM --platform=riscv64 ${PKG_SD_BOOT} AS pkg-sd-boot-riscv64
+FROM --platform=riscv64 ${PKG_IPTABLES} AS pkg-iptables-riscv64
+FROM --platform=riscv64 ${PKG_IPXE} AS pkg-ipxe-riscv64
+FROM --platform=riscv64 ${PKG_LIBARCHIVE} AS pkg-libarchive-riscv64
+FROM --platform=riscv64 ${PKG_LIBATTR} AS pkg-libattr-riscv64
+FROM --platform=riscv64 ${PKG_LIBINIH} AS pkg-libinih-riscv64
+FROM --platform=riscv64 ${PKG_LIBJANSSON} AS pkg-libjansson-riscv64
+FROM --platform=riscv64 ${PKG_LIBJSON_C} AS pkg-libjson-c-riscv64
+FROM --platform=riscv64 ${PKG_LIBMNL} AS pkg-libmnl-riscv64
+FROM --platform=riscv64 ${PKG_LIBNFTNL} AS pkg-libnftnl-riscv64
+FROM --platform=riscv64 ${PKG_LIBPOPT} AS pkg-libpopt-riscv64
+FROM --platform=riscv64 ${PKG_LIBURCU} AS pkg-liburcu-riscv64
+FROM --platform=riscv64 ${PKG_LIBUCONTEXT} AS pkg-libucontext-riscv64
+FROM --platform=riscv64 ${PKG_LIBSEPOL} AS pkg-libsepol-riscv64
+FROM --platform=riscv64 ${PKG_LIBSELINUX} AS pkg-libselinux-riscv64
+FROM --platform=riscv64 ${PKG_PCRE2} AS pkg-pcre2-riscv64
+FROM --platform=riscv64 ${PKG_OPENSSL} AS pkg-openssl-riscv64
 # linux-firmware is not arch-specific
-FROM --platform=amd64 ${PKG_LINUX_FIRMWARE} AS pkg-linux-firmware
+FROM --platform=riscv64 ${PKG_LINUX_FIRMWARE} AS pkg-linux-firmware
 
-FROM --platform=amd64 ${PKG_LVM2} AS pkg-lvm2-amd64
-FROM --platform=arm64 ${PKG_LVM2} AS pkg-lvm2-arm64
-
-FROM --platform=amd64 ${PKG_LIBAIO} AS pkg-libaio-amd64
-FROM --platform=arm64 ${PKG_LIBAIO} AS pkg-libaio-arm64
-
-FROM --platform=amd64 ${PKG_MDADM} AS pkg-mdadm-amd64
-FROM --platform=arm64 ${PKG_MDADM} AS pkg-mdadm-arm64
-
-FROM --platform=amd64 ${PKG_NFTABLES} AS pkg-nftables-amd64
-FROM --platform=arm64 ${PKG_NFTABLES} AS pkg-nftables-arm64
-
-FROM --platform=amd64 ${PKG_MUSL} AS pkg-musl-amd64
-FROM --platform=arm64 ${PKG_MUSL} AS pkg-musl-arm64
-
-FROM --platform=amd64 ${PKG_RUNC} AS pkg-runc-amd64
-FROM --platform=arm64 ${PKG_RUNC} AS pkg-runc-arm64
-
-FROM --platform=amd64 ${PKG_XFSPROGS} AS pkg-xfsprogs-amd64
-FROM --platform=arm64 ${PKG_XFSPROGS} AS pkg-xfsprogs-arm64
-
+FROM --platform=riscv64 ${PKG_LVM2} AS pkg-lvm2-riscv64
+FROM --platform=riscv64 ${PKG_LIBAIO} AS pkg-libaio-riscv64
+FROM --platform=riscv64 ${PKG_MDADM} AS pkg-mdadm-riscv64
+FROM --platform=riscv64 ${PKG_NFTABLES} AS pkg-nftables-riscv64
+FROM --platform=riscv64 ${PKG_MUSL} AS pkg-musl-riscv64
+FROM --platform=riscv64 ${PKG_RUNC} AS pkg-runc-riscv64
+FROM --platform=riscv64 ${PKG_XFSPROGS} AS pkg-xfsprogs-riscv64
 FROM ${PKG_UTIL_LINUX} AS pkg-util-linux
-FROM --platform=amd64 ${PKG_UTIL_LINUX} AS pkg-util-linux-amd64
-FROM --platform=arm64 ${PKG_UTIL_LINUX} AS pkg-util-linux-arm64
-
-FROM --platform=amd64 ${PKG_KMOD} AS pkg-kmod-amd64
-FROM --platform=arm64 ${PKG_KMOD} AS pkg-kmod-arm64
-
-FROM --platform=amd64 ${PKG_CNI} AS pkg-cni-amd64
-FROM --platform=arm64 ${PKG_CNI} AS pkg-cni-arm64
-
-FROM --platform=amd64 ${PKG_FLANNEL_CNI} AS pkg-flannel-cni-amd64
-FROM --platform=arm64 ${PKG_FLANNEL_CNI} AS pkg-flannel-cni-arm64
-
+FROM --platform=riscv64 ${PKG_UTIL_LINUX} AS pkg-util-linux-riscv64
+FROM --platform=riscv64 ${PKG_KMOD} AS pkg-kmod-riscv64
+FROM --platform=riscv64 ${PKG_CNI} AS pkg-cni-riscv64
+FROM --platform=riscv64 ${PKG_FLANNEL_CNI} AS pkg-flannel-cni-riscv64
 FROM ${PKG_KERNEL} AS pkg-kernel
-FROM --platform=amd64 ${PKG_KERNEL} AS pkg-kernel-amd64
-FROM --platform=arm64 ${PKG_KERNEL} AS pkg-kernel-arm64
-
+FROM --platform=riscv64 ${PKG_KERNEL} AS pkg-kernel-riscv64
 FROM ${PKG_PIGZ} AS pkg-pigz
-FROM --platform=arm64 ${PKG_PIGZ} AS pkg-pigz-arm64
-
+FROM --platform=riscv64 ${PKG_PIGZ} AS pkg-pigz-riscv64
 FROM ${PKG_ZLIB} AS pkg-zlib
-FROM --platform=amd64 ${PKG_ZLIB} AS pkg-zlib-amd64
-FROM --platform=arm64 ${PKG_ZLIB} AS pkg-zlib-arm64
+FROM --platform=riscv64 ${PKG_ZLIB} AS pkg-zlib-riscv64
 
-FROM --platform=amd64 ${PKG_IGZIP} AS pkg-igzip-amd64
+FROM --platform=riscv64 ${PKG_IGZIP} AS pkg-igzip-riscv64
 
 FROM ${PKG_ZSTD} AS pkg-zstd
-FROM --platform=amd64 ${PKG_ZSTD} AS pkg-zstd-amd64
-FROM --platform=arm64 ${PKG_ZSTD} AS pkg-zstd-arm64
-
+FROM --platform=riscv64 ${PKG_ZSTD} AS pkg-zstd-riscv64
 FROM ${PKG_CPIO} AS pkg-cpio
 FROM ${PKG_DOSFSTOOLS} AS pkg-dosfstools
 FROM ${PKG_E2FSPROGS} AS pkg-e2fsprogs
@@ -241,21 +163,13 @@ FROM --platform=arm64 ${TOOLS_PREFIX}:${TOOLS} AS tools-arm64
 
 # Strip CNI package.
 
-FROM scratch AS pkg-cni-stripped-amd64
-COPY --link --from=pkg-cni-amd64 /opt/cni/bin/bridge /opt/cni/bin/bridge
-COPY --link --from=pkg-cni-amd64 /opt/cni/bin/firewall /opt/cni/bin/firewall
-COPY --link --from=pkg-cni-amd64 /opt/cni/bin/host-local /opt/cni/bin/host-local
-COPY --link --from=pkg-cni-amd64 /opt/cni/bin/loopback /opt/cni/bin/loopback
-COPY --link --from=pkg-cni-amd64 /opt/cni/bin/portmap /opt/cni/bin/portmap
-COPY --link --from=pkg-cni-amd64 /usr/share/spdx/cni.spdx.json /usr/share/spdx/cni.spdx.json
-
-FROM scratch AS pkg-cni-stripped-arm64
-COPY --link --from=pkg-cni-arm64 /opt/cni/bin/bridge /opt/cni/bin/bridge
-COPY --link --from=pkg-cni-arm64 /opt/cni/bin/firewall /opt/cni/bin/firewall
-COPY --link --from=pkg-cni-arm64 /opt/cni/bin/host-local /opt/cni/bin/host-local
-COPY --link --from=pkg-cni-arm64 /opt/cni/bin/loopback /opt/cni/bin/loopback
-COPY --link --from=pkg-cni-arm64 /opt/cni/bin/portmap /opt/cni/bin/portmap
-COPY --link --from=pkg-cni-arm64 /usr/share/spdx/cni.spdx.json /usr/share/spdx/cni.spdx.json
+FROM scratch AS pkg-cni-stripped-riscv64
+COPY --link --from=pkg-cni-riscv64 /opt/cni/bin/bridge /opt/cni/bin/bridge
+COPY --link --from=pkg-cni-riscv64 /opt/cni/bin/firewall /opt/cni/bin/firewall
+COPY --link --from=pkg-cni-riscv64 /opt/cni/bin/host-local /opt/cni/bin/host-local
+COPY --link --from=pkg-cni-riscv64 /opt/cni/bin/loopback /opt/cni/bin/loopback
+COPY --link --from=pkg-cni-riscv64 /opt/cni/bin/portmap /opt/cni/bin/portmap
+COPY --link --from=pkg-cni-riscv64 /usr/share/spdx/cni.spdx.json /usr/share/spdx/cni.spdx.json
 
 FROM ${PKG_TALOSCTL_CNI_BUNDLE} AS pkgs-talosctl-cni-bundle
 
@@ -407,8 +321,7 @@ FROM scratch AS selinux-generate
 COPY --link --from=selinux /policy /policy
 
 FROM scratch AS ipxe-generate
-COPY --link --from=pkg-ipxe-amd64 /usr/libexec/snp.efi /amd64/snp.efi
-COPY --link --from=pkg-ipxe-arm64 /usr/libexec/snp.efi /arm64/snp.efi
+COPY --link --from=pkg-ipxe-riscv64 /usr/libexec/snp.efi /riscv64/snp.efi
 
 FROM scratch AS microsoft-secureboot-database
 ARG MICROSOFT_SECUREBOOT_RELEASE
@@ -505,11 +418,11 @@ ARG GO_LDFLAGS
 RUN --mount=type=cache,target=/.cache,id=talos/.cache GOOS=linux GOARCH=amd64 GOAMD64=v1 go build ${GO_BUILDFLAGS} -ldflags "${GO_LDFLAGS}" -o /init
 RUN chmod +x /init
 
-FROM base AS init-build-arm64
+FROM base AS init-build-riscv64
 WORKDIR /src/internal/app/init
 ARG GO_BUILDFLAGS
 ARG GO_LDFLAGS
-RUN --mount=type=cache,target=/.cache,id=talos/.cache GOOS=linux GOARCH=arm64 go build ${GO_BUILDFLAGS} -ldflags "${GO_LDFLAGS}" -o /init
+RUN --mount=type=cache,target=/.cache,id=talos/.cache GOOS=linux GOARCH=riscv64 GOAMD64=v1 go build ${GO_BUILDFLAGS} -ldflags "${GO_LDFLAGS}" -o /init
 RUN chmod +x /init
 
 FROM init-build-${TARGETARCH} AS init-build
@@ -519,21 +432,13 @@ COPY --link --from=init-build /init /init
 
 # The machined target builds the machined binary.
 
-FROM base AS machined-build-amd64
+FROM base AS machined-build-riscv64
 WORKDIR /src/internal/app/machined
 ARG GO_BUILDFLAGS
 ARG GO_LDFLAGS
 ARG GO_MACHINED_LDFLAGS
 ARG GOAMD64
-RUN --mount=type=cache,target=/.cache,id=talos/.cache GOOS=linux GOARCH=amd64 GOAMD64=${GOAMD64} go build ${GO_BUILDFLAGS} -ldflags "${GO_LDFLAGS} ${GO_MACHINED_LDFLAGS}" -o /machined
-RUN chmod +x /machined
-
-FROM base AS machined-build-arm64
-WORKDIR /src/internal/app/machined
-ARG GO_BUILDFLAGS
-ARG GO_LDFLAGS
-ARG GO_MACHINED_LDFLAGS
-RUN --mount=type=cache,target=/.cache,id=talos/.cache GOOS=linux GOARCH=arm64 go build ${GO_BUILDFLAGS} -ldflags "${GO_LDFLAGS} ${GO_MACHINED_LDFLAGS}" -o /machined
+RUN --mount=type=cache,target=/.cache,id=talos/.cache GOOS=linux GOARCH=riscv64 GOAMD64=${GOAMD64} go build ${GO_BUILDFLAGS} -ldflags "${GO_LDFLAGS} ${GO_MACHINED_LDFLAGS}" -o /machined
 RUN chmod +x /machined
 
 FROM machined-build-${TARGETARCH} AS machined-build
@@ -703,16 +608,16 @@ FROM scratch AS sd-stub
 ARG TARGETARCH
 COPY --link --from=pkg-sd-boot /*.efi.stub /sd-stub-${TARGETARCH}.efi
 
-FROM tools AS depmod-amd64
+FROM tools AS depmod-riscv64
 WORKDIR /staging
-COPY --link --from=pkg-kernel-amd64 /usr/lib/modules usr/lib/modules
-COPY --link --from=pkg-kernel-amd64 /boot/System.map /staging/
-RUN --mount=type=bind,source=hack/modules-amd64.txt,target=/staging/modules-amd64.txt <<EOF
+COPY --link --from=pkg-kernel-riscv64 /usr/lib/modules usr/lib/modules
+COPY --link --from=pkg-kernel-riscv64 /boot/System.map /staging/
+RUN --mount=type=bind,source=hack/modules-riscv64.txt,target=/staging/modules-riscv64.txt <<EOF
 set -euo pipefail
 
 KERNEL_VERSION=$(ls usr/lib/modules)
 
-xargs -a modules-amd64.txt -I {} install -D usr/lib/modules/${KERNEL_VERSION}/{} /build/usr/lib/modules/${KERNEL_VERSION}/{}
+xargs -a modules-riscv64.txt -I {} install -D usr/lib/modules/${KERNEL_VERSION}/{} /build/usr/lib/modules/${KERNEL_VERSION}/{}
 
 # check if the output of the command is empty, as depmod doesn't fail and just prints a warning
 DEPMOD_OUTPUT=$(depmod -b /build/usr -F /staging/System.map --errsyms -w ${KERNEL_VERSION} 2>&1)
@@ -727,86 +632,58 @@ fi
 
 EOF
 
-FROM scratch AS modules-amd64
-COPY --link --from=depmod-amd64 /build/usr/lib/modules /usr/lib/modules
+FROM scratch AS modules-riscv64
+COPY --link --from=depmod-riscv64 /build/usr/lib/modules /usr/lib/modules
 
-FROM tools AS depmod-arm64
-WORKDIR /staging
-COPY --link --from=pkg-kernel-arm64 /usr/lib/modules usr/lib/modules
-COPY --link --from=pkg-kernel-arm64 /boot/System.map /staging/
-RUN --mount=type=bind,source=hack/modules-arm64.txt,target=/staging/modules-arm64.txt <<EOF
-set -euo pipefail
-
-KERNEL_VERSION=$(ls usr/lib/modules)
-
-xargs -a modules-arm64.txt -I {} install -D usr/lib/modules/${KERNEL_VERSION}/{} /build/usr/lib/modules/${KERNEL_VERSION}/{}
-
-# check if the output of the command is empty, as depmod doesn't fail and just prints a warning
-DEPMOD_OUTPUT=$(depmod -b /build/usr -F /staging/System.map --errsyms -w ${KERNEL_VERSION} 2>&1)
-
-if [ -n "${DEPMOD_OUTPUT}" ]; then
-    echo "depmod output is not empty, indicating a potential issue:"
-    echo "${DEPMOD_OUTPUT}"
-    exit 1
-else
-    echo "depmod completed successfully with no warnings."
-fi
-
-EOF
-
-FROM scratch AS modules-arm64
-COPY --link --from=depmod-arm64 /build/usr/lib/modules /usr/lib/modules
-
-# The rootfs target provides the Talos rootfs.
-FROM tools AS rootfs-base-amd64
+FROM tools AS rootfs-base-riscv64
 SHELL ["/bin/bash", "-c"]
 COPY --link --from=pkg-fhs / /rootfs
-COPY --link --from=pkg-apparmor-amd64 / /rootfs
-COPY --link --from=pkg-cni-stripped-amd64 / /rootfs
-COPY --link --from=pkg-flannel-cni-amd64 / /rootfs
-COPY --link --from=pkg-cryptsetup-amd64 / /rootfs
-COPY --link --exclude=usr/bin/ctr --from=pkg-containerd-amd64 / /rootfs
-COPY --link --from=pkg-dosfstools-amd64 / /rootfs
-COPY --link --from=pkg-e2fsprogs-amd64 / /rootfs
-COPY --link --exclude=usr/share --from=pkg-systemd-udevd-amd64 / /rootfs
-COPY --link --from=pkg-systemd-udevd-amd64 /usr/share/spdx/systemd.spdx.json /rootfs/usr/share/spdx/systemd.spdx.json
-COPY --link --from=pkg-libcap-amd64 / /rootfs
-COPY --link --exclude=usr/share --from=pkg-iptables-amd64 / /rootfs
-COPY --link --from=pkg-iptables-amd64 /usr/share/spdx/iptables.spdx.json /rootfs/usr/share/spdx/iptables.spdx.json
-COPY --link --from=pkg-libarchive-amd64 / /rootfs
-COPY --link --from=pkg-libattr-amd64 / /rootfs
-COPY --link --from=pkg-libinih-amd64 / /rootfs
-COPY --link --exclude=usr/include --from=pkg-libjansson-amd64 / /rootfs
-COPY --link --from=pkg-libjson-c-amd64 / /rootfs
-COPY --link --from=pkg-libmnl-amd64 / /rootfs
-COPY --link --from=pkg-libnftnl-amd64 / /rootfs
-COPY --link --from=pkg-libpopt-amd64 / /rootfs
-COPY --link --from=pkg-libucontext-amd64 / /rootfs
-COPY --link --from=pkg-liburcu-amd64 / /rootfs
-COPY --link --from=pkg-libsepol-amd64 / /rootfs
-COPY --link --from=pkg-libselinux-amd64 / /rootfs
-COPY --link --from=pkg-zstd-amd64 /usr/share/spdx /rootfs/usr/share/spdx
-COPY --link --from=pkg-zstd-amd64 /usr/lib /rootfs/usr/lib
-COPY --link --from=pkg-zlib-amd64 /usr/share/spdx /rootfs/usr/share/spdx
-COPY --link --from=pkg-zlib-amd64 /usr/lib /rootfs/usr/lib
-# NOTE: amd64 ships igzip, but arm64 ships pigz (see https://github.com/siderolabs/extensions/discussions/931)
-COPY --link --exclude=usr/lib/pkgconfig --exclude=usr/include --from=pkg-igzip-amd64 / /rootfs
-COPY --link --from=pkg-pcre2-amd64 / /rootfs
-COPY --link --from=pkg-openssl-amd64 --exclude=usr/lib/libssl* / /rootfs
-COPY --link --from=pkg-lvm2-amd64 / /rootfs
-COPY --link --from=pkg-libaio-amd64 / /rootfs
-COPY --link --from=pkg-mdadm-amd64 / /rootfs
-COPY --link --from=pkg-musl-amd64 / /rootfs
-COPY --link --from=pkg-nftables-amd64 / /rootfs
-COPY --link --from=pkg-runc-amd64 / /rootfs
-COPY --link --from=pkg-xfsprogs-amd64 / /rootfs
-COPY --link --from=pkg-util-linux-amd64 /usr/lib/ /rootfs/usr/lib/
-COPY --link --from=pkg-util-linux-amd64 /usr/share/spdx/util-linux.spdx.json /rootfs/usr/share/spdx/util-linux.spdx.json
-COPY --link --from=pkg-kmod-amd64 /usr/lib/ /rootfs/usr/lib/
-COPY --link --from=pkg-kmod-amd64 /usr/bin/kmod /rootfs/usr/bin/modprobe
-COPY --link --from=pkg-kmod-amd64 usr/share/spdx/kmod.spdx.json /rootfs/usr/share/spdx/kmod.spdx.json
-COPY --link --from=modules-amd64 /usr/lib/modules /rootfs/usr/lib/modules
-COPY --link --from=machined-build-amd64 /machined /rootfs/usr/bin/init
+COPY --link --from=pkg-apparmor-riscv64 / /rootfs
+COPY --link --from=pkg-cni-stripped-riscv64 / /rootfs
+COPY --link --from=pkg-flannel-cni-riscv64 / /rootfs
+COPY --link --from=pkg-cryptsetup-riscv64 / /rootfs
+COPY --link --exclude=usr/bin/ctr --from=pkg-containerd-riscv64 / /rootfs
+COPY --link --from=pkg-dosfstools-riscv64 / /rootfs
+COPY --link --from=pkg-e2fsprogs-riscv64 / /rootfs
+COPY --link --exclude=usr/share --from=pkg-systemd-udevd-riscv64 / /rootfs
+COPY --link --from=pkg-systemd-udevd-riscv64 /usr/share/spdx/systemd.spdx.json /rootfs/usr/share/spdx/systemd.spdx.json
+COPY --link --from=pkg-libcap-riscv64 / /rootfs
+COPY --link --exclude=usr/share --from=pkg-iptables-riscv64 / /rootfs
+COPY --link --from=pkg-iptables-riscv64 /usr/share/spdx/iptables.spdx.json /rootfs/usr/share/spdx/iptables.spdx.json
+COPY --link --from=pkg-libarchive-riscv64 / /rootfs
+COPY --link --from=pkg-libattr-riscv64 / /rootfs
+COPY --link --from=pkg-libinih-riscv64 / /rootfs
+COPY --link --exclude=usr/include --from=pkg-libjansson-riscv64 / /rootfs
+COPY --link --from=pkg-libjson-c-riscv64 / /rootfs
+COPY --link --from=pkg-libmnl-riscv64 / /rootfs
+COPY --link --from=pkg-libnftnl-riscv64 / /rootfs
+COPY --link --from=pkg-libpopt-riscv64 / /rootfs
+COPY --link --from=pkg-libucontext-riscv64 / /rootfs
+COPY --link --from=pkg-liburcu-riscv64 / /rootfs
+COPY --link --from=pkg-libsepol-riscv64 / /rootfs
+COPY --link --from=pkg-libselinux-riscv64 / /rootfs
+COPY --link --from=pkg-zstd-riscv64 /usr/share/spdx /rootfs/usr/share/spdx
+COPY --link --from=pkg-zstd-riscv64 /usr/lib /rootfs/usr/lib
+COPY --link --from=pkg-zlib-riscv64 /usr/share/spdx /rootfs/usr/share/spdx
+COPY --link --from=pkg-zlib-riscv64 /usr/lib /rootfs/usr/lib
+# NOTE: riscv64 ships igzip, but arm64 ships pigz (see https://github.com/siderolabs/extensions/discussions/931)
+COPY --link --exclude=usr/lib/pkgconfig --exclude=usr/include --from=pkg-igzip-riscv64 / /rootfs
+COPY --link --from=pkg-pcre2-riscv64 / /rootfs
+COPY --link --from=pkg-openssl-riscv64 --exclude=usr/lib/libssl* / /rootfs
+COPY --link --from=pkg-lvm2-riscv64 / /rootfs
+COPY --link --from=pkg-libaio-riscv64 / /rootfs
+COPY --link --from=pkg-mdadm-riscv64 / /rootfs
+COPY --link --from=pkg-musl-riscv64 / /rootfs
+COPY --link --from=pkg-nftables-riscv64 / /rootfs
+COPY --link --from=pkg-runc-riscv64 / /rootfs
+COPY --link --from=pkg-xfsprogs-riscv64 / /rootfs
+COPY --link --from=pkg-util-linux-riscv64 /usr/lib/libmount.* /rootfs/usr/lib/
+COPY --link --from=pkg-util-linux-riscv64 /usr/share/spdx/util-linux.spdx.json /rootfs/usr/share/spdx/util-linux.spdx.json
+COPY --link --from=pkg-kmod-riscv64 /usr/lib/libkmod.* /rootfs/usr/lib/
+COPY --link --from=pkg-kmod-riscv64 /usr/bin/kmod /rootfs/usr/bin/modprobe
+COPY --link --from=pkg-kmod-riscv64 usr/share/spdx/kmod.spdx.json /rootfs/usr/share/spdx/kmod.spdx.json
+COPY --link --from=modules-riscv64 /usr/lib/modules /rootfs/usr/lib/modules
+COPY --link --from=machined-build-riscv64 /machined /rootfs/usr/bin/init
 
 RUN <<END
     # the orderly_poweroff call by the kernel will call '/sbin/poweroff'
@@ -825,98 +702,6 @@ RUN --mount=type=bind,source=hack/cleanup.sh,target=/usr/bin/cleanup.sh <<END
     cleanup.sh /rootfs
     mkdir -pv /rootfs/{boot/EFI,/etc/cri/conf.d/hosts,usr/lib/firmware,usr/etc,usr/local/share,usr/share/zoneinfo/Etc,mnt,system,opt,.extra}
     mkdir -pv /rootfs/{etc/kubernetes/manifests,etc/cni/net.ds,etc/ssl/certs,/usr/local/lib/kubelet/credentialproviders,etc/selinux/targeted/contexts/files}
-    mkdir -pv /rootfs/opt/{containerd/bin,containerd/lib}
-    # Go standard library is shipped with Talos, thus it must be tracked in SBOM
-    install -D /usr/share/spdx/golang.spdx.json /rootfs/usr/share/spdx/golang.spdx.json
-END
-COPY --chmod=0644 hack/zoneinfo/Etc/UTC /rootfs/usr/share/zoneinfo/Etc/UTC
-COPY --chmod=0644 hack/nfsmount.conf /rootfs/etc/nfsmount.conf
-COPY --chmod=0644 hack/selinux/virtual_domain_context hack/selinux/virtual_image_context /rootfs/etc/selinux/targeted/contexts/
-COPY --link --chmod=0644 --from=selinux-generate /policy/file_contexts /rootfs/etc/selinux/targeted/contexts/files/file_contexts
-COPY --chmod=0644 hack/containerd.toml /rootfs/etc/containerd/config.toml
-COPY --chmod=0644 hack/cri-containerd.toml /rootfs/etc/cri/containerd.toml
-COPY --chmod=0644 hack/cri-plugin.part /rootfs/etc/cri/conf.d/00-base.part
-COPY --chmod=0644 hack/udevd/99-default.link /rootfs/usr/lib/systemd/network/
-COPY --chmod=0644 hack/udevd/40-vm-hotadd.rules hack/udevd/90-md-raid-arrays.rules hack/udevd/90-md-raid-assembly.rules hack/udevd/90-selinux.rules hack/udevd/99-talos.rules /rootfs/usr/lib/udev/rules.d/
-COPY --chmod=0644 hack/lvm.conf /rootfs/etc/lvm/lvm.conf
-COPY --link --chmod=0644 --from=base /src/pkg/machinery/version/os-release /rootfs/etc/os-release
-RUN <<END
-    ln -s /usr/share/zoneinfo/Etc/UTC /rootfs/etc/localtime
-    touch /rootfs/etc/extensions.yaml
-    ln -s ca-certificates.crt /rootfs/etc/ssl/certs/ca-certificates
-    ln -s /etc/ssl /rootfs/etc/pki
-    ln -s /etc/ssl /rootfs/usr/share/ca-certificates
-    ln -s /etc/ssl /rootfs/usr/local/share/ca-certificates
-    ln -s /etc/ssl /rootfs/etc/ca-certificates
-END
-
-FROM tools AS rootfs-base-arm64
-SHELL ["/bin/bash", "-c"]
-COPY --link --from=pkg-fhs / /rootfs
-COPY --link --from=pkg-apparmor-arm64 / /rootfs
-COPY --link --from=pkg-cni-stripped-arm64 / /rootfs
-COPY --link --from=pkg-flannel-cni-arm64 / /rootfs
-COPY --link --from=pkg-cryptsetup-arm64 / /rootfs
-COPY --link --exclude=usr/bin/ctr --from=pkg-containerd-arm64 / /rootfs
-COPY --link --from=pkg-dosfstools-arm64 / /rootfs
-COPY --link --from=pkg-e2fsprogs-arm64 / /rootfs
-COPY --link --exclude=usr/share --from=pkg-systemd-udevd-arm64 / /rootfs
-COPY --link --from=pkg-systemd-udevd-arm64 /usr/share/spdx/systemd.spdx.json /rootfs/usr/share/spdx/systemd.spdx.json
-COPY --link --from=pkg-libcap-arm64 / /rootfs
-COPY --link --exclude=usr/share --from=pkg-iptables-arm64 / /rootfs
-COPY --link --from=pkg-iptables-arm64 /usr/share/spdx/iptables.spdx.json /rootfs/usr/share/spdx/iptables.spdx.json
-COPY --link --from=pkg-libarchive-arm64 / /rootfs
-COPY --link --from=pkg-libattr-arm64 / /rootfs
-COPY --link --from=pkg-libinih-arm64 / /rootfs
-COPY --link --exclude=usr/include --from=pkg-libjansson-arm64 / /rootfs
-COPY --link --from=pkg-libjson-c-arm64 / /rootfs
-COPY --link --from=pkg-libmnl-arm64 / /rootfs
-COPY --link --from=pkg-libnftnl-arm64 / /rootfs
-COPY --link --from=pkg-libpopt-arm64 / /rootfs
-COPY --link --from=pkg-libucontext-arm64 / /rootfs
-COPY --link --from=pkg-liburcu-arm64 / /rootfs
-COPY --link --from=pkg-libsepol-arm64 / /rootfs
-COPY --link --from=pkg-libselinux-arm64 / /rootfs
-COPY --link --from=pkg-pcre2-arm64 / /rootfs
-COPY --link --from=pkg-openssl-arm64 --exclude=usr/lib/libssl* / /rootfs
-COPY --link --from=pkg-lvm2-arm64 / /rootfs
-COPY --link --from=pkg-libaio-arm64 / /rootfs
-COPY --link --from=pkg-mdadm-arm64 / /rootfs
-COPY --link --from=pkg-musl-arm64 / /rootfs
-COPY --link --from=pkg-nftables-arm64 / /rootfs
-COPY --link --from=pkg-runc-arm64 / /rootfs
-COPY --link --from=pkg-xfsprogs-arm64 / /rootfs
-COPY --link --from=pkg-zstd-arm64 /usr/share/spdx /rootfs/usr/share/spdx
-COPY --link --from=pkg-zstd-arm64 /usr/lib /rootfs/usr/lib
-COPY --link --from=pkg-zlib-arm64 /usr/share/spdx /rootfs/usr/share/spdx
-COPY --link --from=pkg-zlib-arm64 /usr/lib /rootfs/usr/lib
-# NOTE: amd64 ships igzip, but arm64 ships pigz (see https://github.com/siderolabs/extensions/discussions/931)
-COPY --link --from=pkg-pigz-arm64 / /rootfs
-COPY --link --from=pkg-util-linux-arm64 /usr/lib/ /rootfs/usr/lib/
-COPY --link --from=pkg-util-linux-arm64 /usr/share/spdx/util-linux.spdx.json /rootfs/usr/share/spdx/util-linux.spdx.json
-COPY --link --from=pkg-kmod-arm64 /usr/lib/ /rootfs/usr/lib/
-COPY --link --from=pkg-kmod-arm64 /usr/bin/kmod /rootfs/usr/bin/modprobe
-COPY --link --from=pkg-kmod-arm64 /usr/share/spdx/kmod.spdx.json /rootfs/usr/share/spdx/kmod.spdx.json
-COPY --link --from=modules-arm64 /usr/lib/modules /rootfs/usr/lib/modules
-COPY --link --from=machined-build-arm64 /machined /rootfs/usr/bin/init
-
-RUN <<END
-    # the orderly_poweroff call by the kernel will call '/sbin/poweroff'
-    ln -s init /rootfs/usr/bin/poweroff
-    # some extensions like qemu-guest agent will call '/sbin/shutdown'
-    ln -s init /rootfs/usr/bin/shutdown
-    # the orderly_reboot call by the kernel (e.g. hyper-v restart request) will call '/sbin/reboot'
-    ln -s init /rootfs/usr/bin/reboot
-    ln -s init /rootfs/usr/bin/dashboard
-    # sandboxd is PID 1 of the sandbox PID+mount namespace, re-exec'd by machined
-    ln -s init /rootfs/usr/bin/sandboxd
-END
-# NB: We run the cleanup step before creating extra directories, files, and
-# symlinks to avoid accidentally cleaning them up.
-RUN --mount=type=bind,source=hack/cleanup.sh,target=/usr/bin/cleanup.sh <<END
-    cleanup.sh /rootfs
-    mkdir -pv /rootfs/{boot/EFI,/etc/cri/conf.d/hosts,usr/lib/firmware,usr/etc,usr/local/share,usr/share/zoneinfo/Etc,mnt,system,opt,.extra}
-    mkdir -pv /rootfs/{etc/kubernetes/manifests,etc/cni/net.d,etc/ssl/certs,/usr/local/lib/kubelet/credentialproviders,etc/selinux/targeted/contexts/files}
     mkdir -pv /rootfs/opt/{containerd/bin,containerd/lib}
     # Go standard library is shipped with Talos, thus it must be tracked in SBOM
     install -D /usr/share/spdx/golang.spdx.json /rootfs/usr/share/spdx/golang.spdx.json
@@ -966,9 +751,9 @@ EOF
 FROM scratch AS sbom-container-arm64
 COPY --link --from=sbom-container-arm64-generate /rootfs/usr/share/spdx/talos-container-arm64.spdx.json /
 
-FROM build-sbom AS sbom-container-amd64-generate
+FROM build-sbom AS sbom-container-riscv64-generate
 RUN --mount=type=tmpfs,target=/tmp/sbom-src \
-    --mount=type=bind,from=rootfs-base-amd64,source=/rootfs/usr/share/spdx,target=/mnt/spdx \
+    --mount=type=bind,from=rootfs-base-riscv64,source=/rootfs/usr/share/spdx,target=/mnt/spdx \
     --mount=type=cache,target=/.cache,id=talos/.cache <<EOF
 set -euo pipefail
 mkdir -p /rootfs/usr/share/spdx
@@ -979,11 +764,11 @@ go tool github.com/siderolabs/talos/tools/sbom-builder \
     --source-name "$NAME" \
     --source-version "$TAG" \
     --source-date-epoch "${SOURCE_DATE_EPOCH:-0}" \
-    --output /rootfs/usr/share/spdx/talos-container-amd64.spdx.json
+    --output /rootfs/usr/share/spdx/talos-container-riscv64.spdx.json
 EOF
 
-FROM scratch AS sbom-container-amd64
-COPY --link --from=sbom-container-amd64-generate /rootfs/usr/share/spdx/talos-container-amd64.spdx.json /
+FROM scratch AS sbom-container-riscv64
+COPY --link --from=sbom-container-riscv64-generate /rootfs/usr/share/spdx/talos-container-riscv64.spdx.json /
 
 FROM build-sbom AS sbom-arm64-generate
 RUN --mount=type=tmpfs,target=/tmp/sbom-src \
@@ -1006,10 +791,10 @@ EOF
 FROM scratch AS sbom-arm64
 COPY --link --from=sbom-arm64-generate /rootfs/usr/share/spdx/talos-arm64.spdx.json /
 
-FROM build-sbom AS sbom-amd64-generate
+FROM build-sbom AS sbom-riscv64-generate
 RUN --mount=type=tmpfs,target=/tmp/sbom-src \
-    --mount=type=bind,from=rootfs-base-amd64,source=/rootfs/usr/share/spdx,target=/mnt/spdx \
-    --mount=type=bind,from=pkg-kernel-amd64,source=/usr/share/spdx/kernel.spdx.json,target=/mnt/kernel.spdx.json \
+    --mount=type=bind,from=rootfs-base-riscv64,source=/rootfs/usr/share/spdx,target=/mnt/spdx \
+    --mount=type=bind,from=pkg-kernel-riscv64,source=/usr/share/spdx/kernel.spdx.json,target=/mnt/kernel.spdx.json \
     --mount=type=cache,target=/.cache,id=talos/.cache <<EOF
 set -euo pipefail
 mkdir -p /rootfs/usr/share/spdx
@@ -1021,17 +806,15 @@ go tool github.com/siderolabs/talos/tools/sbom-builder \
     --source-name "$NAME" \
     --source-version "$TAG" \
     --source-date-epoch "${SOURCE_DATE_EPOCH:-0}" \
-    --output /rootfs/usr/share/spdx/talos-amd64.spdx.json
+    --output /rootfs/usr/share/spdx/talos-riscv64.spdx.json
 EOF
 
-FROM scratch AS sbom-amd64
-COPY --link --from=sbom-amd64-generate /rootfs/usr/share/spdx/talos-amd64.spdx.json /
+FROM scratch AS sbom-riscv64
+COPY --link --from=sbom-riscv64-generate /rootfs/usr/share/spdx/talos-riscv64.spdx.json /
 
 FROM scratch AS sbom
-COPY --link --from=sbom-container-arm64 / /
-COPY --link --from=sbom-container-amd64 / /
-COPY --link --from=sbom-arm64 / /
-COPY --link --from=sbom-amd64 / /
+COPY --link --from=sbom-container-riscv64 / /
+COPY --link --from=sbom-riscv64 / /
 
 FROM sbom-container-${TARGETARCH} AS sbom-container-target
 
@@ -1040,7 +823,7 @@ FROM ${GENERATE_VEX_PREFIX}:${GENERATE_VEX} AS talos-vex
 
 FROM build-go AS vex-generate
 ARG TAG
-RUN --mount=type=bind,from=talos-vex,source=/generate-vex,target=/generate-vex --mount=type=bind,from=pkg-kernel-amd64,source=/usr/lib/modules,target=/usr/lib/modules <<EOF
+RUN --mount=type=bind,from=talos-vex,source=/generate-vex,target=/generate-vex --mount=type=bind,from=pkg-kernel-riscv64,source=/usr/lib/modules,target=/usr/lib/modules <<EOF
 set -euo pipefail
 
 KERNEL_VERSION=$(ls /usr/lib/modules | sed s/-talos//)
@@ -1056,21 +839,21 @@ COPY --link --from=vex-generate /talos.vex.json /talos.vex.json
 COPY --link --from=vex-generate /talos.grype.yaml /talos.grype.yaml
 
 FROM build-go AS grype-scan
-COPY --link --from=sbom-arm64 /talos-arm64.spdx.json /talos-arm64.spdx.json
+COPY --link --from=sbom-riscv64 /talos-riscv64.spdx.json /talos-riscv64.spdx.json
 COPY --link --from=vex /talos.vex.json /talos.vex.json
 RUN --mount=type=cache,target=/.cache,id=talos/.cache go tool \
-    github.com/anchore/grype/cmd/grype sbom:/talos-arm64.spdx.json \
+    github.com/anchore/grype/cmd/grype sbom:/talos-riscv64.spdx.json \
     --vex /talos.vex.json 2>&1 | tee /grype-scan.log
 
 FROM scratch AS grype-scan-result
 COPY --link --from=grype-scan /grype-scan.log /grype-scan.log
 
 FROM build-go AS grype-validate
-COPY --link --from=sbom-arm64 /talos-arm64.spdx.json /talos-arm64.spdx.json
+COPY --link --from=sbom-riscv64 /talos-riscv64.spdx.json /talos-riscv64.spdx.json
 COPY --link --from=vex /talos.vex.json /talos.vex.json
 COPY --link --from=vex /talos.grype.yaml /talos.grype.yaml
 RUN --mount=type=cache,target=/.cache,id=talos/.cache go tool \
-    github.com/anchore/grype/cmd/grype sbom:/talos-arm64.spdx.json \
+    github.com/anchore/grype/cmd/grype sbom:/talos-riscv64.spdx.json \
     --vex /talos.vex.json --fail-on negligible --config /talos.grype.yaml
 
 FROM rootfs-base-${TARGETARCH} AS rootfs-base
@@ -1082,9 +865,9 @@ ARG SOURCE_DATE_EPOCH
 RUN find /rootfs -print0 \
     | xargs -0r touch --no-dereference --date="@${SOURCE_DATE_EPOCH}"
 
-FROM rootfs-base-arm64 AS rootfs-squashfs-arm64
+FROM rootfs-base-riscv64 AS rootfs-squashfs-riscv64
 RUN rm -rf /rootfs/usr/share/spdx/*
-COPY --link --from=sbom-arm64 / /rootfs/usr/share/spdx/
+COPY --link --from=sbom-riscv64 / /rootfs/usr/share/spdx/
 ARG SOURCE_DATE_EPOCH
 RUN find /rootfs -print0 \
     | xargs -0r touch --no-dereference --date="@${SOURCE_DATE_EPOCH}"
@@ -1092,48 +875,23 @@ ARG ZSTD_COMPRESSION_LEVEL
 COPY --link --from=selinux-generate /policy/file_contexts /file_contexts
 RUN --mount=from=labeled-squashfs-build,source=/labeled-squashfs,target=/usr/local/bin/labeled-squashfs \
     labeled-squashfs /rootfs /rootfs.sqsh /file_contexts ${ZSTD_COMPRESSION_LEVEL}
-
-FROM rootfs-base-amd64 AS rootfs-squashfs-amd64
-RUN rm -rf /rootfs/usr/share/spdx/*
-COPY --link --from=sbom-amd64 / /rootfs/usr/share/spdx/
-ARG SOURCE_DATE_EPOCH
-RUN find /rootfs -print0 \
-    | xargs -0r touch --no-dereference --date="@${SOURCE_DATE_EPOCH}"
-ARG ZSTD_COMPRESSION_LEVEL
-COPY --link --from=selinux-generate /policy/file_contexts /file_contexts
-RUN --mount=from=labeled-squashfs-build,source=/labeled-squashfs,target=/usr/local/bin/labeled-squashfs \
-    labeled-squashfs /rootfs /rootfs.sqsh /file_contexts ${ZSTD_COMPRESSION_LEVEL}
-
-FROM scratch AS squashfs-arm64
-COPY --link --from=rootfs-squashfs-arm64 /rootfs.sqsh /
 
 FROM scratch AS squashfs-amd64
-COPY --link --from=rootfs-squashfs-amd64 /rootfs.sqsh /
+COPY --link --from=rootfs-squashfs-riscv64 /rootfs.sqsh /
+
+FROM scratch AS squashfs-riscv64
+COPY --link --from=rootfs-squashfs-riscv64 /rootfs.sqsh /
 
 FROM scratch AS rootfs
 COPY --link --from=rootfs-base /rootfs /
 
 # The initramfs target provides the Talos initramfs image.
 
-FROM build AS initramfs-archive-arm64
+FROM build AS initramfs-archive-riscv64
 WORKDIR /initramfs
 ARG ZSTD_COMPRESSION_LEVEL
-COPY --link --from=squashfs-arm64 /rootfs.sqsh .
-COPY --link --from=init-build-arm64 /init .
-RUN find . -print0 \
-    | xargs -0r touch --no-dereference --date="@${SOURCE_DATE_EPOCH}"
-RUN set -o pipefail \
-    && find . 2>/dev/null \
-    | LC_ALL=c sort \
-    | cpio --reproducible -H newc -o \
-    | zstd -c -T0 -${ZSTD_COMPRESSION_LEVEL} \
-    > /initramfs.xz
-
-FROM build AS initramfs-archive-amd64
-WORKDIR /initramfs
-ARG ZSTD_COMPRESSION_LEVEL
-COPY --link --from=squashfs-amd64 /rootfs.sqsh .
-COPY --link --from=init-build-amd64 /init .
+COPY --link --from=squashfs-riscv64 /rootfs.sqsh .
+COPY --link --from=init-build-riscv64 /init .
 RUN find . -print0 \
     | xargs -0r touch --no-dereference --date="@${SOURCE_DATE_EPOCH}"
 RUN set -o pipefail \
@@ -1170,23 +928,15 @@ RUN --mount=type=cache,target=/.cache,id=talos/.cache GOOS=linux GOARCH=${TARGET
 RUN chmod +x /installer
 
 # Make the images containing the boot artifacts.
-FROM scratch AS install-artifacts-amd64
-COPY --link --from=pkg-kernel-amd64 /boot/vmlinuz /usr/install/amd64/vmlinuz
-COPY --link --from=initramfs-archive-amd64 /initramfs.xz /usr/install/amd64/initramfs.xz
-COPY --link --from=pkg-sd-boot-amd64 /linuxx64.efi.stub /usr/install/amd64/systemd-stub.efi
-COPY --link --from=pkg-sd-boot-amd64 /systemd-bootx64.efi /usr/install/amd64/systemd-boot.efi
-COPY --link --from=sbom-amd64 /talos-amd64.spdx.json /usr/install/amd64/talos.spdx.json
-
-FROM scratch AS install-artifacts-arm64
-COPY --link --from=pkg-kernel-arm64 /boot/vmlinuz /usr/install/arm64/vmlinuz
-COPY --link --from=initramfs-archive-arm64 /initramfs.xz /usr/install/arm64/initramfs.xz
-COPY --link --from=pkg-sd-boot-arm64 /linuxaa64.efi.stub /usr/install/arm64/systemd-stub.efi
-COPY --link --from=pkg-sd-boot-arm64 /systemd-bootaa64.efi /usr/install/arm64/systemd-boot.efi
-COPY --link --from=sbom-arm64 /talos-arm64.spdx.json /usr/install/arm64/talos.spdx.json
+FROM scratch AS install-artifacts-riscv64
+COPY --link --from=pkg-kernel-riscv64 /boot/vmlinuz /usr/install/riscv64/vmlinuz
+COPY --link --from=initramfs-archive-riscv64 /initramfs.xz /usr/install/riscv64/initramfs.xz
+COPY --link --from=pkg-sd-boot-riscv64 /linuxriscv64.efi.stub /usr/install/riscv64/systemd-stub.efi
+COPY --link --from=pkg-sd-boot-riscv64 /systemd-bootriscv64.efi /usr/install/riscv64/systemd-boot.efi
+COPY --link --from=sbom-riscv64 /talos-riscv64.spdx.json /usr/install/riscv64/talos.spdx.json
 
 FROM scratch AS install-artifacts-all
-COPY --link --from=install-artifacts-amd64 / /
-COPY --link --from=install-artifacts-arm64 / /
+COPY --link --from=install-artifacts-riscv64 / /
 
 FROM install-artifacts-${TARGETARCH} AS install-artifacts-targetarch
 
@@ -1236,8 +986,7 @@ FROM installer-base-image-squashed AS imager-image
 COPY --link --from=pkg-cpio / /
 COPY --link --exclude=**/*.a --exclude=**/*.la  --exclude=usr/lib/pkgconfig --from=pkg-e2fsprogs / /
 COPY --link --exclude=**/*.a --exclude=**/*.la --exclude=usr/include --exclude=usr/lib/pkgconfig --from=pkg-glib / /
-COPY --link --from=pkg-grub-amd64 /usr/lib/grub /usr/lib/grub
-COPY --link --from=pkg-grub-arm64 /usr/lib/grub /usr/lib/grub
+COPY --link --from=pkg-grub-riscv64 /usr/lib/grub /usr/lib/grub
 COPY --link --exclude=usr/include --exclude=usr/lib/pkgconfig --exclude=usr/share/pkgconfig --exclude=usr/share/bash-completion --from=pkg-kmod / /
 COPY --link --exclude=**/*.a --exclude=**/*.la  --exclude=usr/include --exclude=usr/lib/pkgconfig --from=pkg-libarchive / /
 COPY --link --exclude=**/*.a --exclude=**/*.la  --exclude=usr/include --exclude=usr/lib/pkgconfig --from=pkg-libburn / /
@@ -1287,8 +1036,7 @@ RUN /bin/installer \
 FROM scratch AS iso-amd64
 COPY --link --from=iso-amd64-build /out /
 
-FROM scratch AS iso-arm64
-COPY --link --from=iso-arm64-build /out /
+FROM scratch AS iso-riscv64
 
 FROM --platform=${BUILDPLATFORM} iso-${TARGETARCH} AS iso
 
@@ -1353,7 +1101,7 @@ RUN --mount=type=cache,target=/.cache,id=talos/.cache GOOS=linux GOARCH=amd64 GO
 FROM scratch AS integration-test-linux-amd64
 COPY --link --from=integration-test-linux-amd64-build /src/integration.test /integration-test-linux-amd64
 
-FROM base AS integration-test-linux-arm64-build
+FROM base AS integration-test-linux-riscv64-build
 ARG GO_BUILDFLAGS
 ARG GO_LDFLAGS
 RUN --mount=type=cache,target=/.cache,id=talos/.cache GOOS=linux GOARCH=arm64 go test -v -c ${GO_BUILDFLAGS} \
@@ -1361,8 +1109,8 @@ RUN --mount=type=cache,target=/.cache,id=talos/.cache GOOS=linux GOARCH=arm64 go
     -tags integration,integration_api,integration_cli,integration_k8s \
     ./internal/integration
 
-FROM scratch AS integration-test-linux-arm64
-COPY --link --from=integration-test-linux-arm64-build /src/integration.test /integration-test-linux-arm64
+FROM scratch AS integration-test-linux-riscv64
+COPY --link --from=integration-test-linux-riscv64-build /src/integration.test /integration-test-linux-riscv64
 
 FROM base AS integration-test-darwin-arm64-build
 ARG GO_BUILDFLAGS

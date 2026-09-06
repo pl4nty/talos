@@ -19,6 +19,8 @@ func Name(arch string) (string, error) {
 		return filepath.Join(basePath, "BOOTX64.efi"), nil
 	case "arm64":
 		return filepath.Join(basePath, "BOOTAA64.efi"), nil
+	case "riscv64":
+		return filepath.Join(basePath, "BOOTRISCV64.efi"), nil
 	default:
 		return "", fmt.Errorf("unsupported architecture: %s", arch)
 	}
