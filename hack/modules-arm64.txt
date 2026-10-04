@@ -205,7 +205,6 @@ kernel/drivers/net/mdio/mdio-i2c.ko
 kernel/drivers/net/pcs/pcs-rzn1-miic.ko
 kernel/drivers/net/pcs/pcs_xpcs.ko
 kernel/drivers/net/phy/dp83867.ko
-kernel/drivers/net/phy/motorcomm.ko
 kernel/drivers/net/phy/mscc/mscc.ko
 kernel/drivers/net/phy/sfp.ko
 kernel/drivers/net/usb/r8152.ko
