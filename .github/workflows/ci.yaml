@@ -7,7 +7,8 @@ env:
   # next-20251121 with pwm-fan and config https://github.com/pl4nty/talos-pkgs/commit/197af07
   # 6.19-rc3 https://github.com/pl4nty/talos-pkgs/commit/85dc6fb
   # 7.2.2 https://github.com/pl4nty/talos-pkgs/commit/adfaa78
-  PKGS: adfaa78
+  # 7.2.8, no LTO https://github.com/pl4nty/talos-pkgs/pull/23
+  PKGS: 49483a5
 
 concurrency:
   group: ${{ github.head_ref || github.run_id }}
@@ -17,6 +18,8 @@ concurrency:
     branches:
       - main
       - release-*
+      # test-only: LPi4A test image with the pkgs#23 kernel
+      - claude/project-thread-vop532
     tags:
       - v*
   pull_request:
