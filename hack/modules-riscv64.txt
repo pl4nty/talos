@@ -7,6 +7,8 @@ kernel/crypto/blake2b.ko
 kernel/crypto/xxhash_generic.ko
 kernel/drivers/acpi/video.ko
 kernel/drivers/block/nbd.ko
+kernel/drivers/block/virtio_blk.ko
+kernel/drivers/char/virtio_console.ko
 kernel/drivers/clk/starfive/clk-starfive-jh7100-audio.ko
 kernel/drivers/clk/starfive/clk-starfive-jh7110-aon.ko
 kernel/drivers/clk/starfive/clk-starfive-jh7110-isp.ko
@@ -104,6 +106,7 @@ kernel/drivers/net/usb/sr9700.ko
 kernel/drivers/net/usb/sr9800.ko
 kernel/drivers/net/usb/usbnet.ko
 kernel/drivers/net/usb/zaurus.ko
+kernel/drivers/net/virtio_net.ko
 kernel/drivers/net/vrf.ko
 kernel/drivers/nvme/common/nvme-auth.ko
 kernel/drivers/nvme/host/nvme-rdma.ko
@@ -118,6 +121,7 @@ kernel/drivers/scsi/lpfc/lpfc.ko
 kernel/drivers/scsi/mpi3mr/mpi3mr.ko
 kernel/drivers/scsi/qedf/qedf.ko
 kernel/drivers/scsi/qla2xxx/qla2xxx.ko
+kernel/drivers/scsi/virtio_scsi.ko
 kernel/drivers/thunderbolt/thunderbolt.ko
 kernel/drivers/uio/uio.ko
 kernel/drivers/uio/uio_pci_generic.ko
@@ -127,6 +131,11 @@ kernel/drivers/usb/serial/usb_wwan.ko
 kernel/drivers/vfio/pci/vfio-pci-core.ko
 kernel/drivers/vfio/pci/vfio-pci.ko
 kernel/drivers/vfio/vfio.ko
+kernel/drivers/virtio/virtio_balloon.ko
+kernel/drivers/virtio/virtio_mmio.ko
+kernel/drivers/virtio/virtio_pci.ko
+kernel/drivers/virtio/virtio_pci_legacy_dev.ko
+kernel/drivers/virtio/virtio_pci_modern_dev.ko
 kernel/fs/binfmt_misc.ko
 kernel/fs/btrfs/btrfs.ko
 kernel/fs/nfsd/nfsd.ko
