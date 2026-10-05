@@ -8,7 +8,7 @@ env:
   # 6.19-rc3 https://github.com/pl4nty/talos-pkgs/commit/85dc6fb
   # 7.2.2 https://github.com/pl4nty/talos-pkgs/commit/adfaa78
   # 7.2.8, no LTO https://github.com/pl4nty/talos-pkgs/pull/23
-  PKGS: 6512d45 # 7.2.8, no LTO, no riscv64 global merge https://github.com/pl4nty/talos-pkgs/pull/23
+  PKGS: f6a7067 # 7.2.8, no LTO, no riscv64 global merge, built-in TH1520 pinctrl https://github.com/pl4nty/talos-pkgs/pull/23
 
 concurrency:
   group: ${{ github.head_ref || github.run_id }}

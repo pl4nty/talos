@@ -120,7 +120,6 @@ kernel/drivers/nvme/target/nvmet-fc.ko
 kernel/drivers/nvme/target/nvmet-rdma.ko
 kernel/drivers/nvme/target/nvmet-tcp.ko
 kernel/drivers/nvme/target/nvmet.ko
-kernel/drivers/pinctrl/pinctrl-th1520.ko
 kernel/drivers/pmdomain/thead/th1520-pm-domains.ko
 kernel/drivers/power/reset/th1520-aon-reboot.ko
 kernel/drivers/reset/reset-th1520.ko
