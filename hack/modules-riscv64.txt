@@ -144,6 +144,9 @@ kernel/drivers/thunderbolt/thunderbolt.ko
 kernel/drivers/uio/uio.ko
 kernel/drivers/uio/uio_pci_generic.ko
 kernel/drivers/usb/class/cdc-wdm.ko
+kernel/drivers/usb/host/xhci-hcd.ko
+kernel/drivers/usb/host/xhci-pci.ko
+kernel/drivers/usb/host/xhci-plat-hcd.ko
 kernel/drivers/usb/misc/onboard_usb_dev.ko
 kernel/drivers/usb/serial/option.ko
 kernel/drivers/usb/serial/usb_wwan.ko
