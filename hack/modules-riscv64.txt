@@ -14,7 +14,9 @@ kernel/drivers/clk/starfive/clk-starfive-jh7110-aon.ko
 kernel/drivers/clk/starfive/clk-starfive-jh7110-isp.ko
 kernel/drivers/clk/starfive/clk-starfive-jh7110-stg.ko
 kernel/drivers/clk/starfive/clk-starfive-jh7110-vout.ko
+kernel/drivers/dma/mmp_pdma.ko
 kernel/drivers/firmware/thead,th1520-aon.ko
+kernel/drivers/gpio/gpio-spacemit-k1.ko
 kernel/drivers/gpu/drm/amd/amdgpu/amdgpu.ko
 kernel/drivers/gpu/drm/amd/amdxcp/amdxcp.ko
 kernel/drivers/gpu/drm/drm_buddy.ko
@@ -30,6 +32,7 @@ kernel/drivers/gpu/drm/scheduler/gpu-sched.ko
 kernel/drivers/gpu/drm/ttm/ttm.ko
 kernel/drivers/hwmon/i5k_amb.ko
 kernel/drivers/i2c/algos/i2c-algo-bit.ko
+kernel/drivers/i2c/busses/i2c-k1.ko
 kernel/drivers/infiniband/core/ib_cm.ko
 kernel/drivers/infiniband/core/ib_core.ko
 kernel/drivers/infiniband/core/ib_umad.ko
@@ -54,7 +57,9 @@ kernel/drivers/md/dm-round-robin.ko
 kernel/drivers/md/dm-thin-pool.ko
 kernel/drivers/md/persistent-data/dm-persistent-data.ko
 kernel/drivers/md/raid456.ko
+kernel/drivers/misc/eeprom/at24.ko
 kernel/drivers/mmc/host/sdhci-of-dwcmshc.ko
+kernel/drivers/mmc/host/sdhci-of-k1.ko
 kernel/drivers/mmc/host/sdhci-pltfm.ko
 kernel/drivers/net/ethernet/amazon/ena/ena.ko
 kernel/drivers/net/ethernet/atheros/alx/alx.ko
@@ -75,6 +80,7 @@ kernel/drivers/net/ethernet/mellanox/mlxsw/mlxsw_spectrum.ko
 kernel/drivers/net/ethernet/qlogic/qed/qed.ko
 kernel/drivers/net/ethernet/sfc/sfc.ko
 kernel/drivers/net/ethernet/sfc/siena/sfc-siena.ko
+kernel/drivers/net/ethernet/spacemit/k1_emac.ko
 kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.ko
 kernel/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.ko
 kernel/drivers/net/ethernet/stmicro/stmmac/stmmac-platform.ko
@@ -122,6 +128,7 @@ kernel/drivers/nvme/target/nvmet-fc.ko
 kernel/drivers/nvme/target/nvmet-rdma.ko
 kernel/drivers/nvme/target/nvmet-tcp.ko
 kernel/drivers/nvme/target/nvmet.ko
+kernel/drivers/phy/spacemit/phy-k1-usb2.ko
 kernel/drivers/pmdomain/thead/th1520-pm-domains.ko
 kernel/drivers/power/reset/th1520-aon-reboot.ko
 kernel/drivers/power/sequencing/pwrseq-thead-gpu.ko
@@ -137,6 +144,7 @@ kernel/drivers/thunderbolt/thunderbolt.ko
 kernel/drivers/uio/uio.ko
 kernel/drivers/uio/uio_pci_generic.ko
 kernel/drivers/usb/class/cdc-wdm.ko
+kernel/drivers/usb/misc/onboard_usb_dev.ko
 kernel/drivers/usb/serial/option.ko
 kernel/drivers/usb/serial/usb_wwan.ko
 kernel/drivers/vfio/pci/vfio-pci-core.ko
