@@ -8,7 +8,7 @@ env:
   # 6.19-rc3 https://github.com/pl4nty/talos-pkgs/commit/85dc6fb
   # 7.2.2 https://github.com/pl4nty/talos-pkgs/commit/adfaa78
   # 7.2.8, no LTO https://github.com/pl4nty/talos-pkgs/pull/23
-  PKGS: dba5903 # 7.2.8, no LTO, no riscv64 global merge, TH1520 pinctrl, PowerVR, SDIO CD, K1 clk/reset built in
+  PKGS: 80c970d # 7.2.8, no LTO, no riscv64 global merge, TH1520 pinctrl, PowerVR, SDIO CD, K1 clk/reset built in, LicheePi 3A DT (fan, USB hub)
 
 concurrency:
   group: ${{ github.head_ref || github.run_id }}
